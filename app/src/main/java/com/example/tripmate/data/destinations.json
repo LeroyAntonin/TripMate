@@ -1,142 +1,256 @@
-[
-  {
-    "ville": "Paris",
-    "pays": "France",
-    "hotel": "Hôtel des Lumières",
-    "adresse": "18 rue de Rivoli, 75001",
-    "prix": 145,
-    "dateReservation": "12/04/2027",
-    "tags": ["culture", "gastronomie", "patrimoine"],
-    "commentaires": [
-      "Emplacement idéal pour visiter les principaux monuments.",
-      "Le petit-déjeuner est varié et délicieux.",
-      "Chambre confortable, mais un peu petite."
-    ]
-  },
-  {
-    "ville": "Lisbonne",
-    "pays": "Portugal",
-    "hotel": "Casa do Tejo",
-    "adresse": "42 Rua Augusta, 1100-053",
-    "prix": 98,
-    "dateReservation": "03/05/2027",
-    "tags": ["soleil", "architecture", "gastronomie"],
-    "commentaires": [
-      "Très belle vue sur le Tage depuis la terrasse.",
-      "Personnel chaleureux et très disponible.",
-      "Le quartier est animé, même en soirée."
-    ]
-  },
-  {
-    "ville": "Rome",
-    "pays": "Italie",
-    "hotel": "Residenza Colosseo",
-    "adresse": "7 Via dei Fori Imperiali, 00186",
-    "prix": 132,
-    "dateReservation": "18/05/2027",
-    "tags": ["histoire", "culture", "gastronomie"],
-    "commentaires": [
-      "Le Colisée est accessible à pied en quelques minutes.",
-      "Décoration élégante et literie très confortable.",
-      "Le service pourrait être un peu plus rapide."
-    ]
-  },
-  {
-    "ville": "Barcelone",
-    "pays": "Espagne",
-    "hotel": "Hôtel Mar Blau",
-    "adresse": "25 Passeig de Joan de Borbó, 08003",
-    "prix": 118,
-    "dateReservation": "07/06/2027",
-    "tags": ["plage", "architecture", "vie nocturne"],
-    "commentaires": [
-      "La plage et le port sont juste à côté.",
-      "Les chambres sont lumineuses et bien insonorisées.",
-      "Excellent rapport qualité-prix."
-    ]
-  },
-  {
-    "ville": "Santorin",
-    "pays": "Grèce",
-    "hotel": "Caldera View Suites",
-    "adresse": "12 Oia Main Street, 84702",
-    "prix": 210,
-    "dateReservation": "22/06/2027",
-    "tags": ["plage", "romantique", "paysages"],
-    "commentaires": [
-      "Le coucher de soleil depuis la terrasse est magnifique.",
-      "Suite très calme avec une vue exceptionnelle.",
-      "Prévoir des chaussures adaptées aux rues pavées."
-    ]
-  },
-  {
-    "ville": "Marrakech",
-    "pays": "Maroc",
-    "hotel": "Riad Jardin Secret",
-    "adresse": "9 derb Sidi Ahmed, Médina, 40000",
-    "prix": 76,
-    "dateReservation": "10/07/2027",
-    "tags": ["dépaysement", "marchés", "bien-être"],
-    "commentaires": [
-      "Le patio est paisible et très bien entretenu.",
-      "Accueil attentif et excellents conseils pour les visites.",
-      "La médina est animée, mais parfois difficile à parcourir."
-    ]
-  },
-  {
-    "ville": "Tokyo",
-    "pays": "Japon",
-    "hotel": "Sakura Central Hotel",
-    "adresse": "3-8-1 Shinjuku, 160-0022",
-    "prix": 154,
-    "dateReservation": "04/09/2027",
-    "tags": ["technologie", "culture", "gastronomie"],
-    "commentaires": [
-      "Métro très proche et quartier pratique.",
-      "Chambre compacte mais parfaitement organisée.",
-      "Le personnel est discret, efficace et serviable."
-    ]
-  },
-  {
-    "ville": "New York",
-    "pays": "États-Unis",
-    "hotel": "Manhattan Skyline Inn",
-    "adresse": "225 West 34th Street, NY 10001",
-    "prix": 245,
-    "dateReservation": "19/09/2027",
-    "tags": ["ville", "shopping", "spectacles"],
-    "commentaires": [
-      "Vue impressionnante sur les gratte-ciel.",
-      "Très bon accès aux transports en commun.",
-      "Le prix est élevé, mais cohérent avec l'emplacement."
-    ]
-  },
-  {
-    "ville": "Reykjavik",
-    "pays": "Islande",
-    "hotel": "Aurora Harbor Hotel",
-    "adresse": "16 Tryggvagata, 101",
-    "prix": 175,
-    "dateReservation": "08/10/2027",
-    "tags": ["nature", "aurores boréales", "aventure"],
-    "commentaires": [
-      "Excellent point de départ pour explorer les environs.",
-      "Petit-déjeuner copieux et adapté aux excursions.",
-      "L'isolation des fenêtres est remarquable malgré le vent."
-    ]
-  },
-  {
-    "ville": "Bali",
-    "pays": "Indonésie",
-    "hotel": "Ubud Rice Terrace Resort",
-    "adresse": "Jalan Raya Tegalalang, 80561",
-    "prix": 89,
-    "dateReservation": "02/11/2027",
-    "tags": ["plage", "nature", "bien-être"],
-    "commentaires": [
-      "Cadre verdoyant et très reposant.",
-      "Les massages proposés au spa sont excellents.",
-      "Une navette vers le centre serait appréciable."
-    ]
-  }
-]
+{
+  "destinations": [
+    {
+      "ville": "Paris",
+      "pays": "France",
+      "hotel": "Hôtel des Lumières",
+      "adresse": "18 rue de Rivoli, 75001",
+      "prix": 145,
+      "dateReservation": "12/04/2027",
+      "tags": [
+        "culture",
+        "gastronomie",
+        "patrimoine"
+      ],
+      "commentaires": [
+        "Emplacement idéal pour visiter les principaux monuments.",
+        "Le petit-déjeuner est varié et délicieux.",
+        "Chambre confortable, mais un peu petite."
+      ]
+    },
+    {
+      "ville": "Lisbonne",
+      "pays": "Portugal",
+      "hotel": "Casa do Tejo",
+      "adresse": "42 Rua Augusta, 1100-053",
+      "prix": 98,
+      "dateReservation": "03/05/2027",
+      "tags": [
+        "soleil",
+        "architecture",
+        "gastronomie"
+      ],
+      "commentaires": [
+        "Très belle vue sur le Tage depuis la terrasse.",
+        "Personnel chaleureux et très disponible.",
+        "Le quartier est animé, même en soirée."
+      ]
+    },
+    {
+      "ville": "Rome",
+      "pays": "Italie",
+      "hotel": "Residenza Colosseo",
+      "adresse": "7 Via dei Fori Imperiali, 00186",
+      "prix": 132,
+      "dateReservation": "18/05/2027",
+      "tags": [
+        "histoire",
+        "culture",
+        "gastronomie"
+      ],
+      "commentaires": [
+        "Le Colisée est accessible à pied en quelques minutes.",
+        "Décoration élégante et literie très confortable.",
+        "Le service pourrait être un peu plus rapide."
+      ]
+    },
+    {
+      "ville": "Barcelone",
+      "pays": "Espagne",
+      "hotel": "Hôtel Mar Blau",
+      "adresse": "25 Passeig de Joan de Borbó, 08003",
+      "prix": 118,
+      "dateReservation": "07/06/2027",
+      "tags": [
+        "plage",
+        "architecture",
+        "vie nocturne"
+      ],
+      "commentaires": [
+        "La plage et le port sont juste à côté.",
+        "Les chambres sont lumineuses et bien insonorisées.",
+        "Excellent rapport qualité-prix."
+      ]
+    },
+    {
+      "ville": "Santorin",
+      "pays": "Grèce",
+      "hotel": "Caldera View Suites",
+      "adresse": "12 Oia Main Street, 84702",
+      "prix": 210,
+      "dateReservation": "22/06/2027",
+      "tags": [
+        "plage",
+        "romantique",
+        "paysages"
+      ],
+      "commentaires": [
+        "Le coucher de soleil depuis la terrasse est magnifique.",
+        "Suite très calme avec une vue exceptionnelle.",
+        "Prévoir des chaussures adaptées aux rues pavées."
+      ]
+    },
+    {
+      "ville": "Marrakech",
+      "pays": "Maroc",
+      "hotel": "Riad Jardin Secret",
+      "adresse": "9 derb Sidi Ahmed, Médina, 40000",
+      "prix": 76,
+      "dateReservation": "10/07/2027",
+      "tags": [
+        "dépaysement",
+        "marchés",
+        "bien-être"
+      ],
+      "commentaires": [
+        "Le patio est paisible et très bien entretenu.",
+        "Accueil attentif et excellents conseils pour les visites.",
+        "La médina est animée, mais parfois difficile à parcourir."
+      ]
+    },
+    {
+      "ville": "Tokyo",
+      "pays": "Japon",
+      "hotel": "Sakura Central Hotel",
+      "adresse": "3-8-1 Shinjuku, 160-0022",
+      "prix": 154,
+      "dateReservation": "04/09/2027",
+      "tags": [
+        "technologie",
+        "culture",
+        "gastronomie"
+      ],
+      "commentaires": [
+        "Métro très proche et quartier pratique.",
+        "Chambre compacte mais parfaitement organisée.",
+        "Le personnel est discret, efficace et serviable."
+      ]
+    },
+    {
+      "ville": "New York",
+      "pays": "États-Unis",
+      "hotel": "Manhattan Skyline Inn",
+      "adresse": "225 West 34th Street, NY 10001",
+      "prix": 245,
+      "dateReservation": "19/09/2027",
+      "tags": [
+        "ville",
+        "shopping",
+        "spectacles"
+      ],
+      "commentaires": [
+        "Vue impressionnante sur les gratte-ciel.",
+        "Très bon accès aux transports en commun.",
+        "Le prix est élevé, mais cohérent avec l'emplacement."
+      ]
+    },
+    {
+      "ville": "Reykjavik",
+      "pays": "Islande",
+      "hotel": "Aurora Harbor Hotel",
+      "adresse": "16 Tryggvagata, 101",
+      "prix": 175,
+      "dateReservation": "08/10/2027",
+      "tags": [
+        "nature",
+        "aurores boréales",
+        "aventure"
+      ],
+      "commentaires": [
+        "Excellent point de départ pour explorer les environs.",
+        "Petit-déjeuner copieux et adapté aux excursions.",
+        "L'isolation des fenêtres est remarquable malgré le vent."
+      ]
+    },
+    {
+      "ville": "Bali",
+      "pays": "Indonésie",
+      "hotel": "Ubud Rice Terrace Resort",
+      "adresse": "Jalan Raya Tegalalang, 80561",
+      "prix": 89,
+      "dateReservation": "02/11/2027",
+      "tags": [
+        "plage",
+        "nature",
+        "bien-être"
+      ],
+      "commentaires": [
+        "Cadre verdoyant et très reposant.",
+        "Les massages proposés au spa sont excellents.",
+        "Une navette vers le centre serait appréciable."
+      ]
+    }
+  ],
+  "journaux": [
+    {
+      "ville": "Marseille",
+      "dateArrivee": "12/04/2026",
+      "dateDepart": "16/04/2026",
+      "activites": "Promenade sur le Vieux-Port, excursion dans les calanques et découverte de la cuisine méditerranéenne.",
+      "avis": "Marseille est une ville vivante et ensoleillée, avec un patrimoine maritime particulièrement intéressant."
+    },
+    {
+      "ville": "Amsterdam",
+      "dateArrivee": "03/05/2026",
+      "dateDepart": "07/05/2026",
+      "activites": "Balade à vélo le long des canaux, visite du musée Van Gogh et promenade dans le quartier Jordaan.",
+      "avis": "Amsterdam est agréable à parcourir à vélo et possède une ambiance culturelle très riche."
+    },
+    {
+      "ville": "Prague",
+      "dateArrivee": "18/05/2026",
+      "dateDepart": "22/05/2026",
+      "activites": "Visite du château de Prague, traversée du pont Charles et découverte de la vieille ville.",
+      "avis": "Prague est une ville élégante et historique, dont l'architecture est particulièrement remarquable."
+    },
+    {
+      "ville": "Vienne",
+      "dateArrivee": "07/06/2026",
+      "dateDepart": "11/06/2026",
+      "activites": "Visite du palais de Schönbrunn, découverte des musées du MuseumsQuartier et dégustation d'une sachertorte.",
+      "avis": "Vienne est raffinée et reposante, avec une scène artistique et musicale exceptionnelle."
+    },
+    {
+      "ville": "Dublin",
+      "dateArrivee": "22/06/2026",
+      "dateDepart": "26/06/2026",
+      "activites": "Visite du Trinity College, découverte du quartier de Temple Bar et excursion sur la côte irlandaise.",
+      "avis": "Dublin est conviviale et chaleureuse, avec une culture locale très présente."
+    },
+    {
+      "ville": "Berlin",
+      "dateArrivee": "10/07/2026",
+      "dateDepart": "14/07/2026",
+      "activites": "Visite de l'East Side Gallery, découverte de l'île aux Musées et promenade dans le Tiergarten.",
+      "avis": "Berlin est une capitale dynamique et créative, marquée par une histoire fascinante."
+    },
+    {
+      "ville": "Sydney",
+      "dateArrivee": "04/09/2026",
+      "dateDepart": "10/09/2026",
+      "activites": "Visite de l'Opéra, randonnée le long de la côte et baignade à Bondi Beach.",
+      "avis": "Sydney offre un équilibre exceptionnel entre vie urbaine, plages et paysages naturels."
+    },
+    {
+      "ville": "Vancouver",
+      "dateArrivee": "19/09/2026",
+      "dateDepart": "25/09/2026",
+      "activites": "Randonnée dans Stanley Park, découverte de Granville Island et excursion dans les montagnes voisines.",
+      "avis": "Vancouver est une destination accueillante où la nature est facilement accessible depuis la ville."
+    },
+    {
+      "ville": "Le Cap",
+      "dateArrivee": "08/10/2026",
+      "dateDepart": "13/10/2026",
+      "activites": "Ascension de la montagne de la Table, visite du quartier de Bo-Kaap et découverte de la péninsule du Cap.",
+      "avis": "Le Cap séduit par ses paysages spectaculaires, son climat agréable et sa diversité culturelle."
+    },
+    {
+      "ville": "Séoul",
+      "dateArrivee": "02/11/2026",
+      "dateDepart": "09/11/2026",
+      "activites": "Visite du palais de Gyeongbokgung, découverte des quartiers de Hongdae et dégustation de spécialités coréennes.",
+      "avis": "Séoul est une métropole moderne et énergique qui conserve un patrimoine traditionnel remarquable."
+    }
+  ]
+}

@@ -2,7 +2,7 @@
 
 ## Ce que tu vas faire
 
-Ton application affiche déjà la barre TripMate et le champ de recherche. Tu as aussi écrit les informations de tes voyages dans `destinations.json`.
+Ton application affiche déjà la barre TripMate et le champ de recherche. Tu as aussi un premier fichier `destinations.json`. Nous allons adapter son contenu à la structure décidée pour tes deux pages : les destinations proposées et les souvenirs ajoutés par l’utilisateur.
 
 Nous allons reprendre **la méthode du cours Netfloux**, avec tes destinations à la place des films :
 
@@ -10,9 +10,12 @@ Nous allons reprendre **la méthode du cours Netfloux**, avec tes destinations �
 2. Préparer les fiches qui représentent les données lues dans le JSON.
 3. Passer de ces fiches à celles de l'application.
 4. Placer ton texte JSON dans une variable Kotlin, comme `movieData` dans le cours.
-5. Lire les destinations, puis afficher leurs villes sur ton écran.
+5. Lire les destinations, puis afficher leurs noms sur ton écran.
+6. Décrire une fiche de journal pour préparer les futurs ajouts de souvenirs.
 
-À la fin, tu verras les **10 villes de ton fichier**. Taper `par` dans la recherche laissera Paris dans la liste. Les hôtels, prix, tags et commentaires seront aussi disponibles dans les fiches, même si nous n'affichons ici que la ville et le pays.
+À la fin, tu verras **Bali et Santorin** dans une liste. Taper `bal` laissera Bali. Les hôtels, prix, dates, tags et commentaires seront prêts dans les fiches, même si nous affichons ici seulement le nom et le pays.
+
+Le journal sera **vide au départ**. Plus tard, le bouton « + » permettra à l’utilisateur de saisir un souvenir et de choisir ses photos. Dans cette étape, tu prépares la fiche nécessaire ; tu ne construis pas encore le formulaire ni sa sauvegarde.
 
 Les cartes avec images de ta maquette viendront après. Cette étape sert d'abord à préparer et à lire les données.
 
@@ -27,13 +30,15 @@ Les cartes avec images de ta maquette viendront après. Cette étape sert d'abor
 | `movieData` : le texte JSON | `destinationData` : ton texte JSON |
 | `loadMovies()` : la lecture des films | `loadDestinations()` : la lecture des destinations |
 
-Tu gardes les noms français de tes données : `ville`, `pays`, `hotel`, etc. Il n'est pas nécessaire de renommer ces informations comme les champs des films.
+Tu gardes des noms français : `nom`, `pays`, `hotel`, etc. `nom` convient à une ville, une île ou une région. Par exemple, Bali est une île : nous ne l’appelons donc plus `ville` dans les données.
+
+Le prix est affiché **par personne**, comme dans la maquette. Les prix et dates ci-dessous sont des exemples de cours, pas des offres réelles vérifiées. Les noms, hôtels, adresses et commentaires reprennent tes exemples. Les photos seront ajoutées dans une étape suivante.
 
 ## Avant de commencer
 
 Travaille dans **TripMate**, pas dans le projet Netfloux. Sauvegarde les fichiers que tu vas modifier si tu veux conserver tes essais.
 
-Tu vas créer quatre fichiers Kotlin. Leur emplacement de départ est :
+Tu vas créer cinq fichiers Kotlin. Si tu as déjà commencé le premier guide, garde tes fichiers et adapte les déclarations indiquées : ne crée pas une deuxième classe du même nom. Leur emplacement de départ est :
 
 ```text
 app/src/main/java/com/example/tripmate/
@@ -42,6 +47,7 @@ app/src/main/java/com/example/tripmate/
 | Fichier à créer à partir de cet emplacement | Son rôle |
 | --- | --- |
 | `model/Destination.kt` | Décrire une destination utilisée par l'application. |
+| `model/Journal.kt` | Décrire un souvenir que l’utilisateur pourra ajouter. |
 | `model/DestinationDto.kt` | Décrire les destinations telles qu'on les lit dans le JSON. |
 | `mapper/DestinationMapper.kt` | Passer d'une fiche lue à une fiche de l'application. |
 | `data/DestinationData.kt` | Garder le texte JSON et le lire. |
@@ -74,12 +80,17 @@ En dessous, écris cette fiche :
 
 ```kotlin
 data class Destination(
-    val ville: String,
+    val id: Int,
+    val nom: String,
     val pays: String,
     val hotel: String,
     val adresse: String,
     val prix: Int,
-    val dateReservation: String,
+    val devise: String,
+    val unitePrix: String,
+    val dateArrivee: String,
+    val dateDepart: String,
+    val imageUrl: String,
     val tags: List<String>,
     val commentaires: List<String>,
 )
@@ -89,15 +100,21 @@ Une **`data class`** regroupe des informations dans une fiche. `Destination` est
 
 Chaque ligne nomme une information. Après les deux-points `:`, nous indiquons son type, c'est-à-dire ce qu'elle peut contenir :
 
-- `String` : un texte, comme `Paris` ou `France`.
-- `Int` : un nombre entier, comme `145` pour le prix de Paris dans ton fichier.
-- `List<String>` : plusieurs textes, comme les tags `culture`, `gastronomie` et `patrimoine`.
+- `String` : un texte, comme `Bali` ou `Indonésie`.
+- `Int` : un nombre entier, comme `1` pour l’identifiant ou `89` pour le prix de l’exemple Bali.
+- `List<String>` : plusieurs textes, comme les tags `Plage`, `Nature` et `Bien-être`.
 
 `val` signifie que cette information ne sera pas remplacée dans la fiche après sa création. Les virgules séparent les informations.
 
-Nous gardons `dateReservation` comme un texte, par exemple `12/04/2027`. Nous ne faisons pas encore de calcul avec cette date.
+`id` est le numéro qui distingue une destination des autres. Chaque destination doit avoir un numéro différent. Ce numéro permettra plus tard de retrouver la bonne fiche au clic.
 
-Le prix est un nombre dans ton JSON. Il reste donc un nombre dans Kotlin. Nous gardons tes valeurs sans décider ici si elles représentent un prix par nuit, par personne ou par séjour.
+`nom` est le nom affiché : Bali ou Santorin. `devise` indique la monnaie (`EUR` pour l’euro) et `unitePrix` précise ce que le prix concerne (`personne`).
+
+`dateArrivee` et `dateDepart` sont les dates du séjour. Elles restent des textes sous la forme année-mois-jour, par exemple `2027-11-02`. Ce ne sont pas les dates où l’on a effectué la réservation. La date de départ doit être après la date d’arrivée.
+
+`imageUrl` gardera l’adresse de la photo de la destination. Pour l’instant, sa valeur est un texte vide : aucune image distante ne sera encore affichée.
+
+Le prix reste un nombre entier pour les exemples de cette étape. L’unité est désormais explicite : `89`, `EUR` et `personne` signifient ensemble **89 euros par personne**. Si ton vrai tarif est par nuit, il faudra modifier l’unité et le texte de l’écran ensemble, sans simplement changer leur sens.
 
 ## TM06-2 — Décrire la forme lue dans le JSON
 
@@ -127,18 +144,23 @@ Après la ligne précédente, ajoute :
 
 ```kotlin
 data class SingleDestinationDto(
-    val ville: String,
+    val id: Int,
+    val nom: String,
     val pays: String,
     val hotel: String,
     val adresse: String,
     val prix: Int,
-    val dateReservation: String,
+    val devise: String,
+    val unitePrix: String,
+    val dateArrivee: String,
+    val dateDepart: String,
+    val imageUrl: String,
     val tags: List<String>,
     val commentaires: List<String>,
 )
 ```
 
-Les noms correspondent exactement aux informations de ton fichier JSON. Par exemple, `hotel` s'écrit sans accent dans le code, comme dans ton fichier.
+Les noms correspondent exactement à la nouvelle structure JSON que tu prépareras à TM06-4. Par exemple, `hotel` s'écrit sans accent dans le code, comme dans ton fichier.
 
 Dans Netfloux, certaines informations changent de forme : l'année passe d'un texte à un nombre. **Tes informations ont déjà les types souhaités.** Nous n'allons pas transformer artificiellement ton prix en texte ou tes listes en une seule phrase. Nous gardons les deux fiches pour suivre l'organisation du cours.
 
@@ -163,12 +185,17 @@ Après ces imports, écris :
 
 ```kotlin
 fun mapDestination(dto: SingleDestinationDto): Destination = Destination(
-    ville = dto.ville,
+    id = dto.id,
+    nom = dto.nom,
     pays = dto.pays,
     hotel = dto.hotel,
     adresse = dto.adresse,
     prix = dto.prix,
-    dateReservation = dto.dateReservation,
+    devise = dto.devise,
+    unitePrix = dto.unitePrix,
+    dateArrivee = dto.dateArrivee,
+    dateDepart = dto.dateDepart,
+    imageUrl = dto.imageUrl,
     tags = dto.tags,
     commentaires = dto.commentaires,
 )
@@ -182,19 +209,82 @@ Lis la première ligne ainsi :
 - `: Destination` : elle renvoie une fiche pour notre application.
 - `= Destination(...)` : voici comment cette fiche est construite.
 
-Chaque ligne recopie une information. Par exemple, `ville = dto.ville` place la ville reçue dans la nouvelle fiche. Le point de `dto.ville` signifie « prends la ville de cette fiche ».
+Chaque ligne recopie une information. Par exemple, `nom = dto.nom` place le nom reçu dans la nouvelle fiche. Le point de `dto.nom` signifie « prends le nom de cette fiche ».
 
 Le groupe `mapper` contient donc le passage d'une forme de données à l'autre. Pour tes données actuelles, ce passage est une copie. Si la forme reçue change plus tard, ce sera l'endroit où l'adapter.
 
-## TM06-4 — Placer ton JSON dans Kotlin, comme dans le cours
+## TM06-4 — Préparer le nouveau JSON et le placer dans Kotlin
 
-**Ouvre le nouveau fichier `data/DestinationData.kt`.**
+Tu vas travailler avec **deux listes**, qui n’ont pas le même rôle :
 
-Cette étape correspond à `const val movieData = """ ... """` dans Netfloux. Nous allons mettre ton propre texte entre les triples guillemets.
+- `destinations` contient les propositions préparées pour l’accueil.
+- `journaux` contient les souvenirs saisis par l’utilisateur. Elle est vide au départ : `[]`.
 
-### 1. Préparer le haut du fichier
+Le journal ne doit donc pas être rempli avec des voyages inventés pour l’utilisateur. Notre exemple commence sans souvenir enregistré.
 
-Vérifie le package et ajoute ces imports :
+### 1. Préparer ton fichier JSON
+
+Ouvre :
+
+```text
+app/src/main/java/com/example/tripmate/data/destinations.json
+```
+
+**Avant de remplacer son contenu, fais une copie de ton ancien fichier en dehors de `app/src/`**, par exemple dans un dossier personnel `sauvegardes-tripmate`. Tu y garderas les dix destinations et les anciens exemples de journaux si tu veux les reprendre plus tard.
+
+Dans le fichier original `destinations.json`, remplace le contenu par le JSON ci-dessous. Il contient volontairement deux destinations pour apprendre et vérifier la lecture. Tu pourras ensuite ajouter les autres avec les mêmes champs et des identifiants différents.
+
+```json
+{
+  "destinations": [
+    {
+      "id": 1,
+      "nom": "Bali",
+      "pays": "Indonésie",
+      "hotel": "Ubud Rice Terrace Resort",
+      "adresse": "Jalan Raya Tegalalang, 80561",
+      "prix": 89,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-11-02",
+      "dateDepart": "2027-11-07",
+      "imageUrl": "",
+      "tags": ["Plage", "Nature", "Bien-être"],
+      "commentaires": [
+        "Cadre verdoyant et très reposant.",
+        "Les massages proposés au spa sont excellents."
+      ]
+    },
+    {
+      "id": 2,
+      "nom": "Santorin",
+      "pays": "Grèce",
+      "hotel": "Caldera View Suites",
+      "adresse": "12 Oia Main Street, 84702",
+      "prix": 210,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-06-22",
+      "dateDepart": "2027-06-27",
+      "imageUrl": "",
+      "tags": ["Plage", "Romantique", "Paysages"],
+      "commentaires": [
+        "Le coucher de soleil depuis la terrasse est magnifique.",
+        "Suite très calme avec une vue exceptionnelle."
+      ]
+    }
+  ],
+  "journaux": []
+}
+```
+
+Les deux séjours contiennent les mêmes noms de champs. Les prix et dates servent d’exemples ; remplace-les par tes valeurs confirmées lorsque tu auras les vrais tarifs et séjours.
+
+`[]` signifie une liste vide. Il n’y a pas de journal à lire au premier lancement. Le nombre de souvenirs sera calculé à partir de cette liste ; tu n’ajoutes pas un champ séparé pour le compteur.
+
+### 2. Préparer le haut du fichier Kotlin
+
+Ouvre le nouveau fichier `data/DestinationData.kt`. Vérifie le package et ajoute les imports :
 
 ```kotlin
 package com.example.tripmate.data
@@ -206,11 +296,11 @@ import com.example.tripmate.model.SingleDestinationDto
 import org.json.JSONObject
 ```
 
-`JSONObject` est l'outil Android qui lit un objet JSON. Il est déjà disponible : tu n'as pas de bibliothèque à ajouter et tu ne modifies pas Gradle.
+`JSONObject` est l’outil Android qui lit un objet JSON. Il est déjà disponible : aucune bibliothèque à ajouter et aucun changement Gradle pour cette lecture.
 
-### 2. Préparer la place pour le texte
+### 3. Préparer la place pour le texte
 
-Après les imports, écris ces trois lignes :
+Après les imports, écris :
 
 ```kotlin
 const val destinationData = """
@@ -218,34 +308,28 @@ const val destinationData = """
 """
 ```
 
-`const val` donne un nom à un texte fixe. Les trois guillemets `"""` permettent d'écrire un texte sur plusieurs lignes. La première ligne ouvre ce texte ; la dernière le ferme.
+`const val` donne un nom à un texte fixe. Les triples guillemets permettent de garder un texte sur plusieurs lignes. La première série ouvre le texte ; la deuxième le ferme.
 
-### 3. Copier tes données existantes
+### 4. Copier ton nouveau JSON dans la constante
 
-Ouvre maintenant ton fichier :
+Dans `destinations.json`, copie tout le contenu avec Ctrl+A, puis Ctrl+C.
 
-```text
-app/src/main/java/com/example/tripmate/data/destinations.json
-```
-
-Dans **ce fichier JSON**, fais Ctrl+A puis Ctrl+C pour copier tout le contenu.
-
-Reviens dans `DestinationData.kt`. Place le curseur sur **la ligne vide entre les deux séries de triples guillemets**, puis fais Ctrl+V.
+Reviens dans `DestinationData.kt`. Place le curseur sur **la ligne vide entre les deux séries de triples guillemets**, puis colle avec Ctrl+V.
 
 Tu dois avoir, dans cet ordre :
 
-1. La ligne `const val destinationData = """`.
-2. Tout ton JSON, depuis sa première accolade `{` jusqu'à sa dernière accolade `}`.
-3. La ligne de fermeture `"""`.
+1. Le package et les imports.
+2. La ligne `const val destinationData = """`.
+3. Tout le JSON, depuis sa première accolade jusqu’à sa dernière, avec les deux listes.
+4. La ligne de fermeture `"""`.
 
-**Ne remplace pas tout le fichier Kotlin par le JSON.** Le package et les imports restent au-dessus de la constante.
+Ne colle pas le JSON à la place de tout le fichier Kotlin. Le package et les imports restent au-dessus.
 
-Ton texte contient deux listes : `destinations` et `journaux`. Copie les deux pour conserver tes données telles quelles. Dans ce guide, notre fonction lira seulement `destinations`. Les journaux restent dans le texte et dans ton fichier d'origine ; nous ne les affichons pas encore.
+Nous suivons ainsi la méthode de `movieData` dans le cours. **L’application lit destinationData, pas directement le fichier destinations.json.** Le fichier JSON sert ici de support de préparation. Si tu modifies ensuite le catalogue, reporte le changement dans la constante et relance l’application.
 
-Le fichier `destinations.json` peut rester à sa place. Dans cette méthode, l'application utilisera **le texte de `destinationData`**, pas le fichier `.json`. Si tu changes ensuite les données de cette étape, modifie le texte de la constante. Le fichier JSON d'origine ne met pas la constante à jour automatiquement.
+Cette constante contient les données de départ. Elle ne sera pas le lieu où l’application écrira les souvenirs ajoutés par l’utilisateur. Nous préparerons leur forme à TM06-7.
 
-Pour lire le JSON : les accolades `{ }` entourent un objet ; les crochets `[ ]` entourent une liste. Par exemple, `tags` est une liste. Les guillemets et les virgules font partie du format : garde-les pendant la copie.
-
+Dans le JSON, `{ }` entoure un objet, `[ ]` une liste et `:` relie un nom à sa valeur. Garde les guillemets et les virgules pendant la copie.
 ## TM06-5 — Lire les destinations et préparer les fiches
 
 **Reste dans `DestinationData.kt`. Tous les ajouts suivants vont après les triples guillemets de fermeture, donc en dehors du texte JSON.**
@@ -290,7 +374,7 @@ val entries = List(array.length()) { index ->
 
 Ce morceau parcourt les destinations :
 
-- `array.length()` donne leur nombre : 10 dans ton fichier actuel.
+- `array.length()` donne leur nombre : 2 dans le nouvel exemple.
 - `List(...) { index -> ... }` prépare un élément pour chaque position de la liste.
 - `index` est cette position : 0 pour la première destination, 1 pour la deuxième, etc.
 - `item` contient la destination que nous sommes en train de lire.
@@ -307,18 +391,23 @@ Après le bloc qui crée `commentaires`, mais **avant l'accolade qui ferme `entr
 
 ```kotlin
 SingleDestinationDto(
-    ville = item.getString("ville"),
+    id = item.getInt("id"),
+    nom = item.getString("nom"),
     pays = item.getString("pays"),
     hotel = item.getString("hotel"),
     adresse = item.getString("adresse"),
     prix = item.getInt("prix"),
-    dateReservation = item.getString("dateReservation"),
+    devise = item.getString("devise"),
+    unitePrix = item.getString("unitePrix"),
+    dateArrivee = item.getString("dateArrivee"),
+    dateDepart = item.getString("dateDepart"),
+    imageUrl = item.getString("imageUrl"),
     tags = tags,
     commentaires = commentaires,
 )
 ```
 
-Ce morceau construit une fiche à partir des informations lues : `getString("ville")` lit la ville ; `getInt("prix")` lit le prix comme un nombre entier.
+Ce morceau construit une fiche à partir des informations lues : `getString("nom")` lit le nom ; `getInt("prix")` lit le prix comme un nombre entier.
 
 Pour `tags = tags`, le nom à gauche est le champ de la fiche ; à droite, c'est la liste que tu viens de lire. Même principe pour les commentaires.
 
@@ -384,19 +473,19 @@ val destinations = remember { loadDestinations() }
 
 Ce n'est pas une sauvegarde sur disque. Les données fixes sont dans ta constante `destinationData`.
 
-### 3. Garder seulement les villes recherchées
+### 3. Garder seulement les destinations recherchées
 
 Juste sous la ligne précédente et **avant `OutlinedTextField(...)`**, ajoute :
 
 ```kotlin
 val visibleDestinations = destinations.filter { destination ->
-    destination.ville.contains(query, ignoreCase = true)
+    destination.nom.contains(query, ignoreCase = true)
 }
 ```
 
 `filter` parcourt les destinations et garde celles qui respectent la condition. `destination` est la fiche examinée.
 
-`destination.ville.contains(query, ignoreCase = true)` vérifie si la ville contient le texte tapé. Les majuscules et les minuscules ne font pas de différence. Avec `par`, Paris reste dans la liste. Avec un champ vide, toutes les villes restent.
+`destination.nom.contains(query, ignoreCase = true)` vérifie si le nom contient le texte tapé. Les majuscules et les minuscules ne font pas de différence. Avec `bal`, Bali reste dans la liste. Avec un champ vide, les deux destinations restent.
 
 `visibleDestinations` contient le résultat à afficher. Le champ de recherche continue à utiliser le même `query` : ne crée pas une deuxième variable pour la recherche.
 
@@ -428,7 +517,7 @@ Entre les accolades vides de `LazyColumn`, ajoute :
 ```kotlin
 items(visibleDestinations) { destination ->
     Text(
-        text = "${destination.ville}, ${destination.pays}",
+        text = "${destination.nom}, ${destination.pays}",
         style = MaterialTheme.typography.bodyLarge,
         modifier = Modifier.fillMaxWidth().padding(vertical = 12.dp),
     )
@@ -437,7 +526,7 @@ items(visibleDestinations) { destination ->
 
 `items` demande une ligne pour chaque destination visible. À chaque passage, `destination` est la fiche de cette ligne.
 
-`${destination.ville}` et `${destination.pays}` insèrent leurs valeurs dans le texte. La première ligne affichera par exemple **Paris, France**.
+`${destination.nom}` et `${destination.pays}` insèrent leurs valeurs dans le texte. La première ligne affichera **Bali, Indonésie**.
 
 `bodyLarge` est le style de texte courant du thème. `padding(vertical = 12.dp)` ajoute de l'espace au-dessus et au-dessous de chaque ligne.
 
@@ -461,17 +550,80 @@ label = { Text("Rechercher une destination") },
 
 Les couleurs et la loupe restent comme tu les as préparées.
 
-## TM06-7 — Vérifier que cette étape est terminée
+## TM06-7 — Préparer la fiche d’un souvenir ajouté par l’utilisateur
+
+**Crée et ouvre `model/Journal.kt`.** Il se place dans le même groupe que Destination.kt.
+
+Cette fiche prépare la page Journal montrée sur ta maquette. Elle décrit un souvenir créé par l’utilisateur, et non un séjour proposé dans l’accueil.
+
+En haut du fichier, vérifie le package :
+
+```kotlin
+package com.example.tripmate.model
+```
+
+En dessous, ajoute :
+
+```kotlin
+data class Journal(
+    val id: Int,
+    val titre: String,
+    val lieu: String,
+    val pays: String,
+    val dateArrivee: String,
+    val dateDepart: String,
+    val activites: String,
+    val avis: String,
+    val photos: List<String>,
+)
+```
+
+Tu retrouves les types déjà utilisés : Int pour un numéro, String pour un texte et List<String> pour une liste de textes.
+
+Chaque information a un rôle :
+
+| Champ | Ce qu’il contiendra |
+| --- | --- |
+| `id` | Un numéro unique attribué par l’application, pas saisi par l’utilisateur. |
+| `titre` | Le titre saisi, par exemple Mon séjour à Grand-Bassam. |
+| `lieu`, `pays` | L’endroit où le voyage a eu lieu. |
+| `dateArrivee`, `dateDepart` | Les dates choisies, gardées sous la forme année-mois-jour. |
+| `activites` | Le récit des activités saisi par l’utilisateur. |
+| `avis` | Son appréciation du voyage. |
+| `photos` | Les références des photos qu’il aura choisies. La liste peut être vide. |
+
+`photos` contient les adresses ou références qui permettent de retrouver les images. Les fichiers photo eux-mêmes ne sont pas écrits dans le JSON. Une photo choisie sur le téléphone n’a pas forcément une adresse Internet : elle peut avoir une référence locale fournie par Android.
+
+Pour la carte du journal, la première photo pourra servir de couverture. S’il n’y en a aucune, on prévoira un visuel de remplacement. Le nombre de photos sera calculé à partir de cette liste ; pas besoin de l’enregistrer une deuxième fois.
+
+### Comment le bouton « + » utilisera cette fiche plus tard
+
+Voici le fonctionnement prévu, sans code à écrire à ce stade :
+
+1. L’utilisateur touche « + » et ouvre le formulaire.
+2. Il écrit son titre, le lieu, les dates, les activités et son avis, puis choisit ses photos.
+3. Lorsqu’il valide, l’application attribue un identifiant et crée une fiche Journal avec ces informations.
+4. Elle ajoute cette fiche à la liste des souvenirs et met la page à jour.
+5. Elle enregistre le souvenir pour qu’il soit retrouvé après fermeture.
+
+**La constante destinationData ne peut pas être modifiée par l’application.** Son JSON est un point de départ fixe, pas une base dans laquelle le bouton « + » peut écrire.
+
+Plus tard, une liste modifiable gardera les souvenirs pendant l’utilisation. Pour les conserver après fermeture, il faudra aussi une sauvegarde sur le téléphone ou sur un serveur. Les références des photos devront elles aussi rester utilisables après fermeture.
+
+Nous n’ajoutons pas de faux souvenirs maintenant. Le JSON reste avec `"journaux": []`. Comme cette liste est vide et que notre lecture actuelle concerne seulement les destinations, il n’y a pas encore de lecteur JSON ni de DTO de journal à écrire dans cette étape.
+
+Créer `Journal.kt` prépare la forme des données. Cela ne fait pas apparaître automatiquement une page Journal ni un bouton d’ajout fonctionnel. Le formulaire, la liste modifiable et la sauvegarde seront construits dans les étapes correspondantes du cours.
+## TM06-8 — Vérifier que cette étape est terminée
 
 Dans Android Studio, sélectionne **app**, choisis ton téléphone ou ton émulateur, puis clique sur **Run**, le triangle vert.
 
 Vérifie dans cet ordre :
 
 1. La barre TripMate et ton champ sont toujours présents.
-2. Sous le champ, tu vois des villes avec leur pays. La première est **Paris, France**.
-3. Ferme le clavier si nécessaire et fais défiler : tu peux atteindre les 10 destinations, jusqu'à **Bali, Indonésie**.
-4. Tape `par` : seule **Paris, France** reste.
-5. Efface le texte avec la touche de suppression du clavier : les 10 destinations reviennent.
+2. Sous le champ, tu vois **Bali, Indonésie** et **Santorin, Grèce**.
+3. Vérifie les deux noms. Avec seulement deux destinations, il est normal que tout tienne sans défilement ; LazyColumn permettra de défiler lorsque tu ajouteras davantage de destinations.
+4. Tape `bal` : seule **Bali, Indonésie** reste.
+5. Efface le texte avec la touche de suppression du clavier : les deux destinations reviennent.
 6. Tape `zzzz` : la liste est vide, sans fermer l'application.
 
 Le bouton Effacer n'est pas présent dans ton écran actuel : il n'est pas nécessaire pour valider cette lecture des données.
@@ -486,7 +638,7 @@ L'aperçu `GreetingPreview` montre encore le composant Hello Android!. Il ne rep
 | `SingleDestinationDto` reste rouge après TM06-2. | Les deux classes doivent être dans DestinationDto.kt, l'une après l'autre, pas l'une dans l'autre. |
 | `loadDestinations` est inconnu dans MainActivity. | L'import `com.example.tripmate.data.loadDestinations`, puis le nom exact de la fonction. |
 | La fonction doit renvoyer une valeur. | Termine TM06-5, point 4 : la ligne `return` doit être dans loadDestinations, après entries. |
-| L'application se ferme pendant la lecture. | Vérifie la copie complète du JSON, les virgules et les noms exacts des clés : `destinations`, `dateReservation`, `commentaires`, etc. |
+| L'application se ferme pendant la lecture. | Vérifie la copie complète du JSON, les virgules et les noms exacts des clés : `destinations`, `nom`, `dateArrivee`, `dateDepart`, `commentaires`, etc. |
 | Tu as modifié destinations.json mais rien ne change. | Cette étape lit destinationData dans DestinationData.kt. Mets à jour ce texte puis relance l'application. |
 | La recherche ne change pas la liste. | Vérifie que le filtre lit `query` et que items utilise `visibleDestinations`, pas `destinations`. |
 | `weight` est rouge. | LazyColumn doit être directement dans Column. |
@@ -494,8 +646,8 @@ L'aperçu `GreetingPreview` montre encore le composant Hello Android!. Il ne rep
 
 ## Où t'arrêter
 
-Cette étape est terminée quand les 10 destinations s'affichent et que la recherche par ville fonctionne.
+Cette étape est terminée quand Bali et Santorin s’affichent, que la recherche par nom fonctionne et que la fiche Journal est décrite. Le journal commence vide : tu n’as pas encore à remplir un formulaire ni à afficher les souvenirs.
 
-Nous avons gardé la méthode du cours : **texte JSON → DTO → fiche de l'application → liste affichée**. Tes données d'hôtel, de prix, de tags et de commentaires sont dans les fiches. Les journaux restent conservés dans le texte JSON.
+Nous avons gardé la méthode du cours : **texte JSON → DTO → fiche de l'application → liste affichée**. Tes données d’hôtel, de prix, de dates, de tags et de commentaires sont dans les fiches. La liste initiale des journaux est vide, et Journal décrit ce que contiendra un futur souvenir.
 
-Pour l'instant, n'ajoute pas d'adresse d'image, d'identifiant, de serveur ou de navigation pour résoudre cette étape. Ce seront des adaptations à traiter au moment correspondant du cours. Les photos et les cartes complètes de la maquette ne sont pas encore le résultat attendu ici.
+Les identifiants et le champ d’image sont maintenant préparés. Tu ne construis pas encore les cartes illustrées, la navigation, le formulaire d’ajout du journal ou sa sauvegarde. Ce sont les prochaines fonctionnalités à apprendre, pas des conditions supplémentaires pour terminer cette étape.

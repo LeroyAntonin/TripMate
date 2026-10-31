@@ -12,16 +12,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.platform.LocalContext
 
 private val DarkColorScheme = darkColorScheme(
-    primary = Purple80,
+    primary = MainCyanBackground,
+    onPrimary = MainBlackText,
     secondary = PurpleGrey80,
-    tertiary = Pink80
+    tertiary = Pink80,
+    secondaryContainer = DestinationTagBackground,
+    onSecondaryContainer = DestinationTagText,
 )
 
 private val LightColorScheme = lightColorScheme(
-    primary = Purple40,
+    primary = MainCyanBackground,
+    onPrimary = MainBlackText,
     secondary = PurpleGrey40,
-    tertiary = Pink40
-
+    tertiary = Pink40,
+    secondaryContainer = DestinationTagBackground,
+    onSecondaryContainer = DestinationTagText,
     /* Other default colors to override
     background = Color(0xFFFFFBFE),
     surface = Color(0xFFFFFBFE),
@@ -37,7 +42,7 @@ private val LightColorScheme = lightColorScheme(
 fun TripMateTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
-    dynamicColor: Boolean = true,
+    dynamicColor: Boolean = false,
     content: @Composable () -> Unit
 ) {
     val colorScheme = when {

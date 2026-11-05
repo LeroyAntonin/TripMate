@@ -1,5 +1,8 @@
 package com.example.tripmate.screens
 
+import com.example.tripmate.viewmodel.DestinationsUiState
+
+import com.example.tripmate.api.DestinationsAPI
 
 import com.example.tripmate.components.DestinationSearchBar
 import android.os.Bundle
@@ -27,7 +30,7 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
+
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -37,12 +40,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tripmate.R
 import com.example.tripmate.components.DestinationCard
-import com.example.tripmate.data.loadDestinations
+
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(onDestinationClick: () -> Unit) {
+fun HomeScreen(
+    uiState: DestinationsUiState, 
+    onQueryChange: (String) -> Unit,
+    onDestinationClick: (Int) -> Unit) {
     
     
     Scaffold(
@@ -69,14 +75,11 @@ topBar = {
     ) {
         var query by rememberSaveable { mutableStateOf("") }
 
-        val destinations = remember { loadDestinations() }
-
-        val visibleDestinations =
-            destinations.filter { destination ->
-                destination.nom.contains(query, ignoreCase = true)
-            }
-       DestinationSearchBar(value = query, onValueChange = { query = it })
-            
+        val visibleDestinations = uiState.destinations.filter {
+             it.nom.contains(uiState.query, ignoreCase = true)
+}
+        
+        DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)    
             
 /*         OutlinedTextField(
             colors =
@@ -108,7 +111,7 @@ topBar = {
                 DestinationCard(
                     destination = destination,
                     modifier = Modifier.padding(vertical = 6.dp),
-                    onClick = onDestinationClick
+                    onClick = { onDestinationClick(destination.id) }
                 )
             }
         }

@@ -1,5 +1,9 @@
 package com.example.tripmate.components
 
+
+import androidx.compose.ui.res.painterResource
+import com.example.tripmate.R
+
 import androidx.compose.ui.text.style.TextOverflow
 
 import androidx.compose.foundation.layout.Arrangement
@@ -38,6 +42,9 @@ fun DestinationCard(
 
             AsyncImage(
                 model = destination.imageUrl,
+                placeholder = painterResource(R.drawable.ic_launcher_background),   
+                error = painterResource(R.drawable.ic_launcher_background),
+                fallback = painterResource(R.drawable.ic_launcher_background),
                 contentDescription = "Illustration pour ${destination.nom}",
                 modifier = Modifier.width(120.dp).height(140.dp),
                 contentScale = ContentScale.Crop,

@@ -51,29 +51,17 @@ fun HomeScreen(
     onDestinationClick: (Int) -> Unit) {
     
     
-    Scaffold(
 
-modifier = Modifier.fillMaxSize(),
-topBar = {
-    TopAppBar(
-        title = { Text("TripMate") },
-        colors =
-            TopAppBarDefaults.topAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                titleContentColor = MaterialTheme.colorScheme.onPrimary,
-            ),
-    )
-},
-) { innerPadding ->
-    Column(
+
+
+Column(
         modifier =
             Modifier
                 .fillMaxSize()
-                .padding(innerPadding)
                 .padding(16.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp),
     ) {
-        var query by rememberSaveable { mutableStateOf("") }
+    
 
         val visibleDestinations = uiState.destinations.filter {
              it.nom.contains(uiState.query, ignoreCase = true)
@@ -81,28 +69,7 @@ topBar = {
         
         DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)    
             
-/*         OutlinedTextField(
-            colors =
-                OutlinedTextFieldDefaults.colors(
-                    cursorColor = Color.Black,
-                    focusedBorderColor = Color.Black,
-                    focusedLabelColor = Color.Black,
-                    focusedLeadingIconColor = Color.Black,
-                ),
-            value = query,
-            onValueChange = { newValue -> query = newValue },
-            label = { Text("Rechercher un destination") },
-            leadingIcon = {
-                Icon(
-                    painter = painterResource(R.drawable.baseline_search_24),
-                    contentDescription = "Recherche",
-                )
-            },
 
-            singleLine = true,
-            modifier = Modifier.fillMaxWidth(),
-        )
-*/
   
       LazyColumn(
             modifier = Modifier.weight(1f).fillMaxWidth(),
@@ -118,7 +85,7 @@ topBar = {
     }
 }
 
-}
+
 
 
 

@@ -40,27 +40,14 @@ import androidx.compose.ui.Modifier
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TripDetailsScreen(destination: Destination?, onBack: () -> Unit) {
+fun TripDetailsScreen(destination: Destination?)  {
     
 
-    Scaffold(
-    topBar = {
-        TopAppBar(
-            title = { Text("TripMate") },
-            colors = TopAppBarDefaults.topAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primary,
-                titleContentColor = MaterialTheme.colorScheme.onPrimary
-            ),
-            navigationIcon = {
-                TextButton(onClick = onBack) { Text("Retour", color = MaterialTheme.colorScheme.onPrimary) }
-            }
-        )
-    }
-) { innerPadding ->
+
     
 
 if (destination == null) {
-    Text("Destination introuvable", modifier = Modifier.padding(innerPadding))
+    Text("Destination introuvable", modifier = Modifier.padding(16.dp))
 } else {
     
     val currency = if (destination.devise == "EUR") "€" else destination.devise
@@ -69,7 +56,6 @@ if (destination == null) {
     
     Column(
     modifier = Modifier.fillMaxSize().height(200.dp)
-        .padding(innerPadding)
         .verticalScroll(rememberScrollState()),
     verticalArrangement = Arrangement.spacedBy(12.dp)
 ) {
@@ -118,8 +104,8 @@ if (destination == null) {
     }
 }
     
-    }
 }
+
 
 private fun formatTripDate(value: String): String {
     return value.split("-").reversed().joinToString("/")

@@ -29,14 +29,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tripmate.screens.TripDetailsScreen
 import com.example.tripmate.screens.HomeScreen
+import com.example.tripmate.viewmodel.JournalViewModel
 
 
 @Composable
 fun DestinationsNavigation() {
     val navController = rememberNavController()
     
-    val vm: DestinationsViewModel = viewModel()
-    val uiState by vm.uiState.collectAsStateWithLifecycle()
+    val vmd: DestinationsViewModel = viewModel()
+    val uiStateD by vmd.uiState.collectAsStateWithLifecycle()
+    val vmj: JournalViewModel = viewModel()
+    val uiStateJ by vmj.uiState.collectAsStateWithLifecycle()
     
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route ?: "home"
@@ -73,8 +76,8 @@ fun DestinationsNavigation() {
             
                     
                     HomeScreen(
-                        uiState = uiState,
-                        onQueryChange = vm::updateQuery,
+                        uiState = uiStateD,
+                        onQueryChange = vmd::updateQuery,
                         onDestinationClick = { destinationId ->
                             navController.navigate("details/$destinationId")
                         }
@@ -85,7 +88,7 @@ fun DestinationsNavigation() {
                     ) {
                         entry ->
                         val destinationId = entry.arguments?.getInt("destinationId")
-                        val destination = uiState.destinations.firstOrNull {
+                        val destination = uiStateD.destinations.firstOrNull {
                         it.id == destinationId
                     }
                             TripDetailsScreen(
@@ -96,7 +99,11 @@ fun DestinationsNavigation() {
 
 
                 composable("journal") {
-                    JournalScreen()
+                    JournalScreen(uiState = uiStateJ,
+                        onQueryChange = vmj::updateQuery,
+                        onDestinationClick = { destinationId ->
+                            navController.navigate("details/$destinationId")
+                        })
                 }
                 
                 composable("profile") {

@@ -80,7 +80,7 @@ fun DestinationsNavigation() {
                     HomeScreen(
                         uiState = uiStateD,
                         onQueryChange = vmd::updateQuery,
-                        onTagChange = vmd::updateTag,
+                        onTagClick = vmd::toggleFilterTag,
                         onDestinationClick = { destinationId ->
                             navController.navigate("details/$destinationId")
                         }
@@ -123,7 +123,11 @@ fun DestinationsNavigation() {
                 }
                 
                 composable("profile") {
-                    ProfileScreen()
+                    ProfileScreen(
+                        tags = uiStateD.destinations.flatMap { it.tags }.distinct(),
+                        selectedTags = uiStateD.preferredTags,
+                        onTagClick = vmd::togglePreferredTag,
+                    )
                 }
                 
                 composable("settings") {

@@ -11,7 +11,8 @@ import kotlinx.coroutines.flow.update
 data class DestinationsUiState(
     val destinations: List<Destination> = emptyList(),
     val query: String = "",
-    val selectedTag: String? = null,
+    val preferredTags: Set<String> = emptySet(),
+    val filterTags: Set<String> = emptySet(),
     
     val isLoading: Boolean = false,
     val error: String? = null,
@@ -32,8 +33,23 @@ class DestinationsViewModel : ViewModel() {
     fun updateQuery(query: String) {
     _uiState.update { current -> current.copy(query = query) }
 }
-    fun updateTag(tag: String?) {
-    _uiState.update { current -> current.copy(selectedTag = tag) }
+    fun togglePreferredTag(tag: String) {
+    _uiState.update { current ->
+        val preferredTags = current.preferredTags.toMutableSet()
+        if (!preferredTags.add(tag)) {
+            preferredTags.remove(tag)
+        }
+        current.copy(preferredTags = preferredTags)
+    }
+}
+    fun toggleFilterTag(tag: String) {
+    _uiState.update { current ->
+        val filterTags = current.filterTags.toMutableSet()
+        if (!filterTags.add(tag)) {
+            filterTags.remove(tag)
+        }
+        current.copy(filterTags = filterTags)
+    }
 }
     fun refresh() {
     _uiState.update { current -> current.copy(destinations = DestinationsAPI.getDestinations()) }

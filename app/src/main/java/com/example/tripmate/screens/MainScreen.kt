@@ -15,9 +15,6 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -53,7 +50,7 @@ import com.example.tripmate.components.DestinationCard
 fun HomeScreen(
     uiState: DestinationsUiState, 
     onQueryChange: (String) -> Unit,
-    onTagChange: (String?) -> Unit,
+    onTagClick: (String) -> Unit,
     onDestinationClick: (Int) -> Unit) {
     
     
@@ -69,11 +66,14 @@ Column(
     ) {
     
 
-        val tags = uiState.destinations.flatMap { it.tags }.distinct()
         val visibleDestinations = uiState.destinations.filter { destination ->
             destination.nom.contains(uiState.query, ignoreCase = true) &&
-                (uiState.selectedTag == null || uiState.selectedTag in destination.tags)
+                (uiState.filterTags.isEmpty() ||
+                    destination.tags.any { it in uiState.filterTags })
+        }.sortedByDescending { destination ->
+            destination.tags.count { it in uiState.preferredTags }
         }
+        val tags = uiState.destinations.flatMap { it.tags }.distinct()
         
         DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)    
 
@@ -81,17 +81,10 @@ Column(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.spacedBy(8.dp),
         ) {
-            item {
-                FilterChip(
-                    selected = uiState.selectedTag == null,
-                    onClick = { onTagChange(null) },
-                    label = { Text("Tous") },
-                )
-            }
             items(tags) { tag ->
                 FilterChip(
-                    selected = uiState.selectedTag == tag,
-                    onClick = { onTagChange(tag) },
+                    selected = tag in uiState.filterTags,
+                    onClick = { onTagClick(tag) },
                     label = { Text(tag) },
                 )
             }
@@ -111,9 +104,5 @@ Column(
         }
     }
 }
-
-
-
-
 
 

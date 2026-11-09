@@ -51,13 +51,6 @@ fun TripBottomBar(
     label = { Text("Profil") },
     colors = itemColors,
 )
-    NavigationBarItem(
-    selected = selectedRoute == "settings",
-    onClick = { onNavigate("settings") },
-    icon = { Icon(painterResource(R.drawable.ic_nav_settings), contentDescription = null) },
-    label = { Text("Réglages") },
-    colors = itemColors,
-)
     
 }
 

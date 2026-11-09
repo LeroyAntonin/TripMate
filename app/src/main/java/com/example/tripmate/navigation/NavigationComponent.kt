@@ -13,7 +13,6 @@ import com.example.tripmate.components.TripAppScaffold
 
 import com.example.tripmate.screens.JournalScreen
 import com.example.tripmate.screens.ProfileScreen
-import com.example.tripmate.screens.PreferencesScreen
 
 
 import androidx.compose.runtime.getValue
@@ -129,10 +128,7 @@ fun DestinationsNavigation() {
                         onTagClick = vmd::togglePreferredTag,
                     )
                 }
-                
-                composable("settings") {
-                    PreferencesScreen()
-                }
+
                 
        }
 

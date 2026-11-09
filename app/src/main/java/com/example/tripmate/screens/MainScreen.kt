@@ -15,9 +15,14 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -48,6 +53,7 @@ import com.example.tripmate.components.DestinationCard
 fun HomeScreen(
     uiState: DestinationsUiState, 
     onQueryChange: (String) -> Unit,
+    onTagChange: (String?) -> Unit,
     onDestinationClick: (Int) -> Unit) {
     
     
@@ -63,12 +69,33 @@ Column(
     ) {
     
 
-        val visibleDestinations = uiState.destinations.filter {
-             it.nom.contains(uiState.query, ignoreCase = true)
-}
+        val tags = uiState.destinations.flatMap { it.tags }.distinct()
+        val visibleDestinations = uiState.destinations.filter { destination ->
+            destination.nom.contains(uiState.query, ignoreCase = true) &&
+                (uiState.selectedTag == null || uiState.selectedTag in destination.tags)
+        }
         
         DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)    
-            
+
+        LazyRow(
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.spacedBy(8.dp),
+        ) {
+            item {
+                FilterChip(
+                    selected = uiState.selectedTag == null,
+                    onClick = { onTagChange(null) },
+                    label = { Text("Tous") },
+                )
+            }
+            items(tags) { tag ->
+                FilterChip(
+                    selected = uiState.selectedTag == tag,
+                    onClick = { onTagChange(tag) },
+                    label = { Text(tag) },
+                )
+            }
+        }
 
   
       LazyColumn(
@@ -84,7 +111,6 @@ Column(
         }
     }
 }
-
 
 
 

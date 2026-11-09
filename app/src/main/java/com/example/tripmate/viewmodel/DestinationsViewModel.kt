@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.update
 data class DestinationsUiState(
     val destinations: List<Destination> = emptyList(),
     val query: String = "",
+    val selectedTag: String? = null,
     
     val isLoading: Boolean = false,
     val error: String? = null,
@@ -30,6 +31,9 @@ class DestinationsViewModel : ViewModel() {
     
     fun updateQuery(query: String) {
     _uiState.update { current -> current.copy(query = query) }
+}
+    fun updateTag(tag: String?) {
+    _uiState.update { current -> current.copy(selectedTag = tag) }
 }
     fun refresh() {
     _uiState.update { current -> current.copy(destinations = DestinationsAPI.getDestinations()) }

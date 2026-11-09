@@ -80,6 +80,7 @@ fun DestinationsNavigation() {
                     HomeScreen(
                         uiState = uiStateD,
                         onQueryChange = vmd::updateQuery,
+                        onTagChange = vmd::updateTag,
                         onDestinationClick = { destinationId ->
                             navController.navigate("details/$destinationId")
                         }

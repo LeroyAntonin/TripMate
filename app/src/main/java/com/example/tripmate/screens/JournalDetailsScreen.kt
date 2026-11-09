@@ -1,8 +1,6 @@
 package com.example.tripmate.screens
 
 
-import com.example.tripmate.components.TripDetailRow
-
 import com.example.tripmate.model.Destination
 
 import androidx.compose.foundation.layout.Arrangement
@@ -36,6 +34,7 @@ import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.style.TextAlign
 import com.example.tripmate.model.Journal
 
 
@@ -55,7 +54,7 @@ fun JournalDetailsScreen(journal: Journal?)  {
         val datesText = "${formatTripDate(journal.dateArrivee)} – ${formatTripDate(journal.dateDepart)}"
 
         Column(
-            modifier = Modifier.fillMaxSize().height(200.dp)
+            modifier = Modifier.fillMaxSize()
                 .verticalScroll(rememberScrollState()),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
@@ -78,22 +77,16 @@ fun JournalDetailsScreen(journal: Journal?)  {
                     style = MaterialTheme.typography.titleLarge,
                 )
 
-                TripDetailRow(
-                    iconRes = R.drawable.ic_trip_calendar,
-                    label = "Dates",
-                    value = datesText,
+                Text(
+                    text = datesText,
+                    style = MaterialTheme.typography.bodyMedium,
                 )
 
-                TripDetailRow(
-                    iconRes = R.drawable.ic_trip_location,
-                    label = "Avis",
-                    value = journal.avis,
+                Text(
+                    text = journal.avis,
+                    style = MaterialTheme.typography.headlineSmall,
+                    textAlign = TextAlign.Justify
                 )
-
-
-
-
-
             }
 
         }

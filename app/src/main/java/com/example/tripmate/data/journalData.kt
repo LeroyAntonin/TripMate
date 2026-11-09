@@ -13,7 +13,7 @@ const val journalData = """
     {
   "journaux": [
     {
-      "id": 1,
+      "id": 10,
       "ville": "Marseille",
       "pays": "France",
       "dateArrivee": "12/04/2026",
@@ -22,7 +22,7 @@ const val journalData = """
       "avis": "Promenade sur le Vieux-Port, excursion dans les calanques et découverte de la cuisine méditerranéenne. Marseille est une ville vivante et ensoleillée, avec un patrimoine maritime particulièrement intéressant."
     },
     {
-      "id": 2,
+      "id": 20,
       "ville": "Amsterdam",
       "pays": "Pays-Bas",
       "dateArrivee": "03/05/2026",
@@ -31,7 +31,7 @@ const val journalData = """
       "avis": "Balade à vélo le long des canaux, visite du musée Van Gogh et promenade dans le quartier Jordaan. Amsterdam est agréable à parcourir à vélo et possède une ambiance culturelle très riche."
     },
     {
-      "id": 3,
+      "id": 30,
       "ville": "Prague",
       "pays": "République tchèque",
       "dateArrivee": "18/05/2026",
@@ -40,7 +40,7 @@ const val journalData = """
       "avis": "Visite du château de Prague, traversée du pont Charles et découverte de la vieille ville. Prague est une ville élégante et historique, dont l'architecture est particulièrement remarquable."
     },
     {
-      "id": 4,
+      "id": 40,
       "ville": "Vienne",
       "pays": "Autriche",
       "dateArrivee": "07/06/2026",
@@ -49,7 +49,7 @@ const val journalData = """
       "avis": "Visite du palais de Schönbrunn, découverte des musées du MuseumsQuartier et dégustation d'une sachertorte. Vienne est raffinée et reposante, avec une scène artistique et musicale exceptionnelle."
     },
     {
-      "id": 5,
+      "id": 50,
       "ville": "Dublin",
       "pays": "Irlande",
       "dateArrivee": "22/06/2026",
@@ -58,7 +58,7 @@ const val journalData = """
       "avis": "Visite du Trinity College, découverte du quartier de Temple Bar et excursion sur la côte irlandaise. Dublin est conviviale et chaleureuse, avec une culture locale très présente."
     },
     {
-      "id": 6,
+      "id": 60,
       "ville": "Berlin",
       "pays": "Allemagne",
       "dateArrivee": "10/07/2026",
@@ -67,7 +67,7 @@ const val journalData = """
       "avis": "Visite de l'East Side Gallery, découverte de l'île aux Musées et promenade dans le Tiergarten. Berlin est une capitale dynamique et créative, marquée par une histoire fascinante."
     },
     {
-      "id": 7,
+      "id": 70,
       "ville": "Sydney",
       "pays": "Australie",
       "dateArrivee": "04/09/2026",
@@ -76,7 +76,7 @@ const val journalData = """
       "avis": "Visite de l'Opéra, randonnée le long de la côte et baignade à Bondi Beach. Sydney offre un équilibre exceptionnel entre vie urbaine, plages et paysages naturels."
     },
     {
-      "id": 8,
+      "id": 80,
       "ville": "Vancouver",
       "pays": "Canada",
       "dateArrivee": "19/09/2026",
@@ -85,7 +85,7 @@ const val journalData = """
       "avis": "Randonnée dans Stanley Park, découverte de Granville Island et excursion dans les montagnes voisines. Vancouver est une destination accueillante où la nature est facilement accessible depuis la ville."
     },
     {
-      "id": 9,
+      "id": 90,
       "ville": "Le Cap",
       "pays": "Afrique du Sud",
       "dateArrivee": "08/10/2026",
@@ -94,7 +94,7 @@ const val journalData = """
       "avis": "Ascension de la montagne de la Table, visite du quartier de Bo-Kaap et découverte de la péninsule du Cap. Le Cap séduit par ses paysages spectaculaires, son climat agréable et sa diversité culturelle."
     },
     {
-      "id": 10,
+      "id": 100,
       "ville": "Séoul",
       "pays": "Corée du Sud",
       "dateArrivee": "02/11/2026",

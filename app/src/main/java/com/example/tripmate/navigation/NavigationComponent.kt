@@ -44,7 +44,8 @@ fun DestinationsNavigation() {
     
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route ?: "home"
-    val showBack = currentRoute.startsWith("details/")
+    val showBack = currentRoute.startsWith("details/") ||
+            currentRoute.startsWith("journalDetails/")
     val selectedRoute = if (showBack) "home" else currentRoute
     
     
@@ -103,11 +104,11 @@ fun DestinationsNavigation() {
                     JournalScreen(uiState = uiStateJ,
                         onQueryChange = vmj::updateQuery,
                         onJournalClick = { journalId ->
-                            navController.navigate("details/$journalId")
+                            navController.navigate("journalDetails/$journalId")
                         })
                 }
 
-                composable(route = "details/{journalId}", arguments = listOf(navArgument("journalId") { type = NavType.IntType })
+                composable(route = "journalDetails/{journalId}", arguments = listOf(navArgument("journalId") { type = NavType.IntType })
                 ) {
                         entry ->
                     val journalId = entry.arguments?.getInt("journalId")

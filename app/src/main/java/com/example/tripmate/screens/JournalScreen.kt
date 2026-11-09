@@ -49,7 +49,7 @@ import com.example.tripmate.viewmodel.JournalUiState
 fun JournalScreen(
     uiState: JournalUiState,
     onQueryChange: (String) -> Unit,
-    onDestinationClick: (Int) -> Unit) {
+    onJournalClick: (Int) -> Unit) {
 
 
 
@@ -79,7 +79,7 @@ fun JournalScreen(
                 JournalCard(
                     journal = journal,
                     modifier = Modifier.padding(vertical = 6.dp),
-                    onClick = { onDestinationClick(journal.id) }
+                    onClick = { onJournalClick(journal.id) }
                 )
             }
         }

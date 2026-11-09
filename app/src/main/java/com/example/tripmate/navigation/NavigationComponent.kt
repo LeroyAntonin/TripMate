@@ -28,6 +28,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tripmate.screens.TripDetailsScreen
+import com.example.tripmate.screens.JournalDetailsScreen
 import com.example.tripmate.screens.HomeScreen
 import com.example.tripmate.viewmodel.JournalViewModel
 
@@ -101,9 +102,22 @@ fun DestinationsNavigation() {
                 composable("journal") {
                     JournalScreen(uiState = uiStateJ,
                         onQueryChange = vmj::updateQuery,
-                        onDestinationClick = { destinationId ->
-                            navController.navigate("details/$destinationId")
+                        onJournalClick = { journalId ->
+                            navController.navigate("details/$journalId")
                         })
+                }
+
+                composable(route = "details/{journalId}", arguments = listOf(navArgument("journalId") { type = NavType.IntType })
+                ) {
+                        entry ->
+                    val journalId = entry.arguments?.getInt("journalId")
+                    val journal = uiStateJ.journaux.firstOrNull {
+                        it.id == journalId
+                    }
+                    JournalDetailsScreen(
+                        journal = journal,
+
+                        )
                 }
                 
                 composable("profile") {

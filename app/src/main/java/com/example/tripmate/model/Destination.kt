@@ -1,5 +1,8 @@
 package com.example.tripmate.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Destination(
     val id: Int,
     val nom: String,
@@ -15,4 +18,3 @@ data class Destination(
     val tags: List<String>,
     val commentaires: List<String>,
 )
-

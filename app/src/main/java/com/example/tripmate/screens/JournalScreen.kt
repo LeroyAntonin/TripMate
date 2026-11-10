@@ -2,7 +2,6 @@ package com.example.tripmate.screens
 
 import com.example.tripmate.viewmodel.DestinationsUiState
 
-import com.example.tripmate.api.DestinationsAPI
 
 import com.example.tripmate.components.DestinationSearchBar
 import android.os.Bundle
@@ -17,6 +16,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
@@ -50,6 +51,7 @@ fun JournalScreen(
     onQueryChange: (String) -> Unit,
     onJournalClick: (Int) -> Unit,
     onAddJournalClick: () -> Unit,
+    onRetry: () -> Unit,
 ) {
 
 
@@ -81,15 +83,27 @@ fun JournalScreen(
 
 
 
-            LazyColumn(
-                modifier = Modifier.weight(1f).fillMaxWidth(),
-            ) {
-                items(visibleDestinations) { journal ->
-                    JournalCard(
-                        journal = journal,
-                        modifier = Modifier.padding(vertical = 6.dp),
-                        onClick = { onJournalClick(journal.id) }
-                    )
+            when {
+                uiState.isLoading -> CircularProgressIndicator()
+                uiState.error != null -> {
+                    Text(uiState.error, color = MaterialTheme.colorScheme.error)
+                    Button(onClick = onRetry) {
+                        Text("Réessayer")
+                    }
+                }
+                visibleDestinations.isEmpty() -> Text("Aucun journal trouvé.")
+                else -> {
+                    LazyColumn(
+                        modifier = Modifier.weight(1f).fillMaxWidth(),
+                    ) {
+                        items(visibleDestinations, key = { it.id }) { journal ->
+                            JournalCard(
+                                journal = journal,
+                                modifier = Modifier.padding(vertical = 6.dp),
+                                onClick = { onJournalClick(journal.id) },
+                            )
+                        }
+                    }
                 }
             }
         }

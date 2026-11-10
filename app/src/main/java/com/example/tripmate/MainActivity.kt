@@ -37,7 +37,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.tripmate.components.DestinationCard
-import com.example.tripmate.data.loadDestinations
 import com.example.tripmate.ui.theme.TripMateTheme
 
 @OptIn(ExperimentalMaterial3Api::class)

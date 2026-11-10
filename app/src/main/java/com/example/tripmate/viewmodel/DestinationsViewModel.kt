@@ -2,7 +2,9 @@ package com.example.tripmate.viewmodel
 
 import com.example.tripmate.model.Destination
 import androidx.lifecycle.ViewModel
-import com.example.tripmate.api.DestinationsAPI
+import androidx.lifecycle.viewModelScope
+import com.example.tripmate.api.DatabaseApi
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -52,6 +54,21 @@ class DestinationsViewModel : ViewModel() {
     }
 }
     fun refresh() {
-    _uiState.update { current -> current.copy(destinations = DestinationsAPI.getDestinations()) }
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true, error = null) }
+            try {
+                val destinations = DatabaseApi.getDestinations()
+                _uiState.update {
+                    it.copy(destinations = destinations, isLoading = false)
+                }
+            } catch (exception: Exception) {
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        error = "Impossible de charger les destinations : ${exception.message}",
+                    )
+                }
+            }
+        }
     }
 }

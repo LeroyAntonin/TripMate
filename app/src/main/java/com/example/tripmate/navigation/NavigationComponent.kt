@@ -84,7 +84,8 @@ fun DestinationsNavigation() {
                         onTagClick = vmd::toggleFilterTag,
                         onDestinationClick = { destinationId ->
                             navController.navigate("details/$destinationId")
-                        }
+                        },
+                        onRetry = vmd::refresh,
                     )
                 }
                 
@@ -111,6 +112,7 @@ fun DestinationsNavigation() {
                         onAddJournalClick = {
                             navController.navigate("addJournal")
                         },
+                        onRetry = vmj::refresh,
                     )
                 }
 

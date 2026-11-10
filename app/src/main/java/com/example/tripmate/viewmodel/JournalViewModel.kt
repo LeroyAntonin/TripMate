@@ -1,10 +1,10 @@
 package com.example.tripmate.viewmodel
 
-import com.example.tripmate.model.Destination
 import androidx.lifecycle.ViewModel
-import com.example.tripmate.api.DestinationsAPI
-import com.example.tripmate.api.JournalApi
+import androidx.lifecycle.viewModelScope
+import com.example.tripmate.api.DatabaseApi
 import com.example.tripmate.model.Journal
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -35,6 +35,21 @@ class JournalViewModel : ViewModel() {
         _uiState.update { current -> current.copy(query = query) }
     }
     fun refresh() {
-        _uiState.update { current -> current.copy(journaux = JournalApi.getJournal()) }
+        viewModelScope.launch {
+            _uiState.update { it.copy(isLoading = true, error = null) }
+            try {
+                val journaux = DatabaseApi.getJournaux()
+                _uiState.update {
+                    it.copy(journaux = journaux, isLoading = false)
+                }
+            } catch (exception: Exception) {
+                _uiState.update {
+                    it.copy(
+                        isLoading = false,
+                        error = "Impossible de charger les journaux : ${exception.message}",
+                    )
+                }
+            }
+        }
     }
 }

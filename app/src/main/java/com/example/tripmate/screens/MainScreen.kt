@@ -2,7 +2,6 @@ package com.example.tripmate.screens
 
 import com.example.tripmate.viewmodel.DestinationsUiState
 
-import com.example.tripmate.api.DestinationsAPI
 
 import com.example.tripmate.components.DestinationSearchBar
 import android.os.Bundle
@@ -18,6 +17,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
+import androidx.compose.material3.Button
+import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.FilterChip
 import androidx.compose.material3.Icon
@@ -51,7 +52,9 @@ fun HomeScreen(
     uiState: DestinationsUiState, 
     onQueryChange: (String) -> Unit,
     onTagClick: (String) -> Unit,
-    onDestinationClick: (Int) -> Unit) {
+    onDestinationClick: (Int) -> Unit,
+    onRetry: () -> Unit,
+) {
     
     
 
@@ -91,18 +94,28 @@ Column(
         }
 
   
-      LazyColumn(
-            modifier = Modifier.weight(1f).fillMaxWidth(),
-        ) {
-            items(visibleDestinations) { destination ->
-                DestinationCard(
-                    destination = destination,
-                    modifier = Modifier.padding(vertical = 6.dp),
-                    onClick = { onDestinationClick(destination.id) }
-                )
+        when {
+            uiState.isLoading -> CircularProgressIndicator()
+            uiState.error != null -> {
+                Text(uiState.error, color = MaterialTheme.colorScheme.error)
+                Button(onClick = onRetry) {
+                    Text("Réessayer")
+                }
+            }
+            visibleDestinations.isEmpty() -> Text("Aucune destination trouvée.")
+            else -> {
+                LazyColumn(
+                    modifier = Modifier.weight(1f).fillMaxWidth(),
+                ) {
+                    items(visibleDestinations, key = { it.id }) { destination ->
+                        DestinationCard(
+                            destination = destination,
+                            modifier = Modifier.padding(vertical = 6.dp),
+                            onClick = { onDestinationClick(destination.id) },
+                        )
+                    }
+                }
             }
         }
     }
 }
-
-

@@ -1,5 +1,8 @@
 package com.example.tripmate.model
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Journal(
     val id: Int,
     val ville: String,

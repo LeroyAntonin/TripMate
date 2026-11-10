@@ -28,6 +28,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.tripmate.screens.TripDetailsScreen
 import com.example.tripmate.screens.JournalDetailsScreen
+import com.example.tripmate.screens.AddJournalScreen
 import com.example.tripmate.screens.HomeScreen
 import com.example.tripmate.viewmodel.JournalViewModel
 
@@ -44,7 +45,8 @@ fun DestinationsNavigation() {
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = backStackEntry?.destination?.route ?: "home"
     val showBack = currentRoute.startsWith("details/") ||
-            currentRoute.startsWith("journalDetails/")
+            currentRoute.startsWith("journalDetails/") ||
+            currentRoute == "addJournal"
     val selectedRoute = if (showBack) "home" else currentRoute
     
     
@@ -105,7 +107,15 @@ fun DestinationsNavigation() {
                         onQueryChange = vmj::updateQuery,
                         onJournalClick = { journalId ->
                             navController.navigate("journalDetails/$journalId")
-                        })
+                        },
+                        onAddJournalClick = {
+                            navController.navigate("addJournal")
+                        },
+                    )
+                }
+
+                composable("addJournal") {
+                    AddJournalScreen()
                 }
 
                 composable(route = "journalDetails/{journalId}", arguments = listOf(navArgument("journalId") { type = NavType.IntType })

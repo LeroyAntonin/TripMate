@@ -18,7 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
+import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.OutlinedTextFieldDefaults
@@ -30,7 +30,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
-
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -49,38 +48,49 @@ import com.example.tripmate.viewmodel.JournalUiState
 fun JournalScreen(
     uiState: JournalUiState,
     onQueryChange: (String) -> Unit,
-    onJournalClick: (Int) -> Unit) {
+    onJournalClick: (Int) -> Unit,
+    onAddJournalClick: () -> Unit,
+) {
 
 
 
 
 
-    Column(
-        modifier =
-            Modifier
-                .fillMaxSize()
-                .padding(16.dp),
-        verticalArrangement = Arrangement.spacedBy(12.dp),
-    ) {
-
-
-        val visibleDestinations = uiState.journaux.filter {
-            it.ville.contains(uiState.query, ignoreCase = true)
-        }
-
-        DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)
-
-
-
-        LazyColumn(
-            modifier = Modifier.weight(1f).fillMaxWidth(),
+    Scaffold(
+        floatingActionButton = {
+            FloatingActionButton(onClick = onAddJournalClick) {
+                Text("+", style = MaterialTheme.typography.headlineSmall)
+            }
+        },
+    ) { innerPadding ->
+        Column(
+            modifier =
+                Modifier
+                    .fillMaxSize()
+                    .padding(innerPadding)
+                    .padding(16.dp),
+            verticalArrangement = Arrangement.spacedBy(12.dp),
         ) {
-            items(visibleDestinations) { journal ->
-                JournalCard(
-                    journal = journal,
-                    modifier = Modifier.padding(vertical = 6.dp),
-                    onClick = { onJournalClick(journal.id) }
-                )
+
+
+            val visibleDestinations = uiState.journaux.filter {
+                it.ville.contains(uiState.query, ignoreCase = true)
+            }
+
+            DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)
+
+
+
+            LazyColumn(
+                modifier = Modifier.weight(1f).fillMaxWidth(),
+            ) {
+                items(visibleDestinations) { journal ->
+                    JournalCard(
+                        journal = journal,
+                        modifier = Modifier.padding(vertical = 6.dp),
+                        onClick = { onJournalClick(journal.id) }
+                    )
+                }
             }
         }
     }

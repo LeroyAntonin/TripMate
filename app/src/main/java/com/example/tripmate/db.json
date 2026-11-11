@@ -11,7 +11,7 @@
                              "unitePrix":  " personne",
                              "dateArrivee":  "2027-11-02",
                              "dateDepart":  "2027-11-07",
-                             "imageUrl":  "https://picsum.photos/seed/bali/240/360",
+                             "imageUrl":  "https://th.bing.com/th/id/R.d524fbff3d91ee69957ece75d97554c1?rik=4cQq%2ff2e4JlgJw&pid=ImgRaw&r=0",
                              "tags":  [
                                           "Plage",
                                           "Nature",
@@ -33,7 +33,7 @@
                              "unitePrix":  "personne",
                              "dateArrivee":  "2027-06-22",
                              "dateDepart":  "2027-06-27",
-                             "imageUrl":  "https://picsum.photos/seed/santorin/240/360",
+                             "imageUrl":  "https://ulysse.com/news/wp-content/uploads/2025/02/Santorin.jpg",
                              "tags":  [
                                           "Plage",
                                           "Romantique",
@@ -46,112 +46,346 @@
                          },
                          {
                              "id":  3,
-                             "nom":  "Santorin",
-                             "pays":  "Grèce",
-                             "hotel":  "Caldera View Suites",
-                             "adresse":  "12 Oia Main Street, 84702",
-                             "prix":  210,
+                             "nom":  "Kyoto",
+                             "pays":  "Japon",
+                             "hotel":  "Gion Garden Ryokan",
+                             "adresse":  "35 Hanamikoji-dori, Kyoto 605-0074",
+                             "prix":  145,
                              "devise":  "EUR",
                              "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-22",
-                             "dateDepart":  "2027-06-27",
-                             "imageUrl":  "https://picsum.photos/seed/santorin/240/360",
+                             "dateArrivee":  "2027-03-18",
+                             "dateDepart":  "2027-03-23",
+                             "imageUrl":  "https://www.agoda.com/wp-content/uploads/2024/04/kyoto-1244x700.jpg",
                              "tags":  [
-                                          "Plage",
-                                          "Romantique",
-                                          "Paysages"
+                                          "Culture",
+                                          "Tradition",
+                                          "Gastronomie"
                                       ],
                              "commentaires":  [
-                                                  "Le coucher de soleil depuis la terrasse est magnifique.",
-                                                  "Suite très calme avec une vue exceptionnelle."
+                                                  "Les temples et les jardins traditionnels sont magnifiques.",
+                                                  "Le ryokan offre une immersion authentique dans la culture japonaise."
                                               ]
                          },
                          {
                              "id":  4,
-                             "nom":  "Santorin",
-                             "pays":  "Grèce",
-                             "hotel":  "Caldera View Suites",
-                             "adresse":  "12 Oia Main Street, 84702",
-                             "prix":  210,
+                             "nom":  "New York",
+                             "pays":  "États-Unis",
+                             "hotel":  "Manhattan Skyline Hotel",
+                             "adresse":  "220 West 41st Street, New York 10018",
+                             "prix":  195,
                              "devise":  "EUR",
                              "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-22",
-                             "dateDepart":  "2027-06-27",
-                             "imageUrl":  "https://picsum.photos/seed/santorin/240/360",
+                             "dateArrivee":  "2027-04-10",
+                             "dateDepart":  "2027-04-15",
+                             "imageUrl":  "https://wallpapers.com/images/hd/new-york-city-desktop-xlgf908jx8spk948.jpg",
                              "tags":  [
-                                          "Plage",
-                                          "Romantique",
-                                          "Paysages"
+                                          "Ville",
+                                          "Culture",
+                                          "Shopping"
                                       ],
                              "commentaires":  [
-                                                  "Le coucher de soleil depuis la terrasse est magnifique.",
-                                                  "Suite très calme avec une vue exceptionnelle."
+                                                  "La vue sur Manhattan est impressionnante de jour comme de nuit.",
+                                                  "Les musées et les quartiers emblématiques sont facilement accessibles."
                                               ]
                          },
                          {
                              "id":  5,
-                             "nom":  "Santorin",
-                             "pays":  "Grèce",
-                             "hotel":  "Caldera View Suites",
-                             "adresse":  "12 Oia Main Street, 84702",
-                             "prix":  210,
+                             "nom":  "Marrakech",
+                             "pays":  "Maroc",
+                             "hotel":  "Riad Jardin Majorelle",
+                             "adresse":  "18 Derb Sidi Bouamar, Marrakech 40000",
+                             "prix":  78,
                              "devise":  "EUR",
                              "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-22",
-                             "dateDepart":  "2027-06-27",
-                             "imageUrl":  "https://picsum.photos/seed/santorin/240/360",
+                             "dateArrivee":  "2027-05-06",
+                             "dateDepart":  "2027-05-11",
+                             "imageUrl":  "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_862/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/gi69sm5egf5akbzn51m9/MarrakechMedina:GuidedWalkingTourofSouksHiddenGems.jpg",
                              "tags":  [
-                                          "Plage",
-                                          "Romantique",
-                                          "Paysages"
+                                          "Histoire",
+                                          "Marchés",
+                                          "Bien-être"
                                       ],
                              "commentaires":  [
-                                                  "Le coucher de soleil depuis la terrasse est magnifique.",
-                                                  "Suite très calme avec une vue exceptionnelle."
+                                                  "Le riad est paisible malgré l'animation de la médina.",
+                                                  "Les souks et les palais offrent un dépaysement total."
                                               ]
                          },
                          {
                              "id":  6,
-                             "nom":  "Santorin",
-                             "pays":  "Grèce",
-                             "hotel":  "Caldera View Suites",
-                             "adresse":  "12 Oia Main Street, 84702",
-                             "prix":  210,
+                             "nom":  "Rio de Janeiro",
+                             "pays":  "Brésil",
+                             "hotel":  "Copacabana Ocean View",
+                             "adresse":  "Avenida Atlântica 1702, Rio de Janeiro 22021-001",
+                             "prix":  112,
                              "devise":  "EUR",
                              "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-22",
-                             "dateDepart":  "2027-06-27",
-                             "imageUrl":  "https://picsum.photos/seed/santorin/240/360",
+                             "dateArrivee":  "2027-08-14",
+                             "dateDepart":  "2027-08-20",
+                             "imageUrl":  "https://cdn.getyourguide.com/img/tour/60073ab2e0237.jpeg/98.jpg",
                              "tags":  [
                                           "Plage",
-                                          "Romantique",
-                                          "Paysages"
+                                          "Musique",
+                                          "Aventure"
                                       ],
                              "commentaires":  [
-                                                  "Le coucher de soleil depuis la terrasse est magnifique.",
-                                                  "Suite très calme avec une vue exceptionnelle."
+                                                  "La plage de Copacabana est juste devant l'hôtel.",
+                                                  "Le panorama depuis le Corcovado est spectaculaire."
                                               ]
                          },
                          {
                              "id":  7,
-                             "nom":  "Santorin",
-                             "pays":  "Grèce",
-                             "hotel":  "Caldera View Suites",
-                             "adresse":  "12 Oia Main Street, 84702",
-                             "prix":  210,
+                             "nom":  "Queenstown",
+                             "pays":  "Nouvelle-Zélande",
+                             "hotel":  "Lake Wakatipu Lodge",
+                             "adresse":  "45 Lake Esplanade, Queenstown 9300",
+                             "prix":  132,
                              "devise":  "EUR",
                              "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-22",
-                             "dateDepart":  "2027-06-27",
-                             "imageUrl":  "https://picsum.photos/seed/santorin/240/360",
+                             "dateArrivee":  "2027-10-03",
+                             "dateDepart":  "2027-10-09",
+                             "imageUrl":  "https://wallpaperaccess.com/full/1667228.jpg",
                              "tags":  [
-                                          "Plage",
-                                          "Romantique",
-                                          "Paysages"
+                                          "Montagne",
+                                          "Nature",
+                                          "Aventure"
                                       ],
                              "commentaires":  [
-                                                  "Le coucher de soleil depuis la terrasse est magnifique.",
-                                                  "Suite très calme avec une vue exceptionnelle."
+                                                  "Les montagnes autour du lac offrent un cadre exceptionnel.",
+                                                  "Les activités de plein air sont nombreuses et bien organisées."
+                                              ]
+                         },
+                         {
+                             "id":  8,
+                             "nom":  "Lisbonne",
+                             "pays":  "Portugal",
+                             "hotel":  "Alfama View Hotel",
+                             "adresse":  "Rua da Alfândega 12, 1100-016",
+                             "prix":  96,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-02-08",
+                             "dateDepart":  "2027-02-13",
+                             "imageUrl":  "https://th.bing.com/th/id/R.d8f66ceb264920386a3ae0046c505b65?rik=0PJDZzGq3chc8A&pid=ImgRaw&r=0",
+                             "tags":  ["Culture", "Gastronomie", "Ville"],
+                             "commentaires":  [
+                                                  "Les quartiers historiques se découvrent facilement à pied.",
+                                                  "Les spécialités locales et les azulejos sont incontournables."
+                                              ]
+                         },
+                         {
+                             "id":  9,
+                             "nom":  "Reykjavik",
+                             "pays":  "Islande",
+                             "hotel":  "Northern Lights Lodge",
+                             "adresse":  "Laugavegur 41, 101 Reykjavik",
+                             "prix":  158,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-02-20",
+                             "dateDepart":  "2027-02-25",
+                             "imageUrl":  "https://images.prismic.io/visiticeland/d209d40f-ca3d-44c1-9556-816f73b226ad_Reykjavik_Hallgrimskirkja_Autumn_Iceland.jpg?ixlib=gatsbyFP&auto=compress%2Cformat&fit=max&rect=0%2C115%2C1621%2C851&w=1200&h=630",
+                             "tags":  ["Aurores boréales", "Nature", "Aventure"],
+                             "commentaires":  [
+                                                  "Les paysages volcaniques sont impressionnants.",
+                                                  "Une excursion nocturne permet d'observer les aurores."
+                                              ]
+                         },
+                         {
+                             "id":  10,
+                             "nom":  "Istanbul",
+                             "pays":  "Turquie",
+                             "hotel":  "Bosphorus Palace Hotel",
+                             "adresse":  "Sultanahmet Meydani 8, 34122",
+                             "prix":  84,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-04-22",
+                             "dateDepart":  "2027-04-27",
+                             "imageUrl":  "https://wallpaperaccess.com/full/273961.jpg",
+                             "tags":  ["Histoire", "Culture", "Gastronomie"],
+                             "commentaires":  [
+                                                  "La mosquée Sainte-Sophie domine un quartier fascinant.",
+                                                  "La croisière sur le Bosphore offre de superbes panoramas."
+                                              ]
+                         },
+                         {
+                             "id":  11,
+                             "nom":  "Dubaï",
+                             "pays":  "Émirats arabes unis",
+                             "hotel":  "Marina Skyline Resort",
+                             "adresse":  "Marina Walk 22, Dubai",
+                             "prix":  175,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-05-18",
+                             "dateDepart":  "2027-05-23",
+                             "imageUrl":  "https://th.bing.com/th/id/R.8734c6085be8e1a91070c7ce7b58417d?rik=iXM5lFNTPzTScA&pid=ImgRaw&r=0",
+                             "tags":  ["Luxe", "Désert", "Ville"],
+                             "commentaires":  [
+                                                  "La marina est animée et agréable en soirée.",
+                                                  "Le safari dans le désert contraste avec les gratte-ciel."
+                                              ]
+                         },
+                         {
+                             "id":  12,
+                             "nom":  "Zanzibar",
+                             "pays":  "Tanzanie",
+                             "hotel":  "Stone Town Beach Resort",
+                             "adresse":  "Forodhani Road 6, Zanzibar",
+                             "prix":  105,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-06-03",
+                             "dateDepart":  "2027-06-09",
+                             "imageUrl":  "https://www.tia.ac.tz/wp-content/uploads/2024/08/ZANZIBAR-scaled.jpg",
+                             "tags":  ["Plage", "Plongée", "Nature"],
+                             "commentaires":  [
+                                                  "Les eaux turquoise sont parfaites pour la plongée.",
+                                                  "Stone Town possède une architecture pleine de caractère."
+                                              ]
+                         },
+                         {
+                             "id":  13,
+                             "nom":  "Petra",
+                             "pays":  "Jordanie",
+                             "hotel":  "Wadi Musa Heritage Hotel",
+                             "adresse":  "Tourism Street 15, Wadi Musa",
+                             "prix":  92,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-06-16",
+                             "dateDepart":  "2027-06-21",
+                             "imageUrl":  "https://static.vecteezy.com/system/resources/previews/013/962/573/large_2x/tourist-walk-by-caves-of-tombs-in-ancient-city-of-petra-jordan-it-is-know-as-the-loculi-petra-has-led-to-its-designation-as-unesco-world-heritage-site-photo.jpg",
+                             "tags":  ["Histoire", "Désert", "Aventure"],
+                             "commentaires":  [
+                                                  "Le site de Petra est encore plus impressionnant au lever du soleil.",
+                                                  "Les randonnées dans le canyon sont inoubliables."
+                                              ]
+                         },
+                         {
+                             "id":  14,
+                             "nom":  "Seychelles",
+                             "pays":  "Seychelles",
+                             "hotel":  "Mahé Coral Bay Resort",
+                             "adresse":  "Anse Royale 4, Mahé",
+                             "prix":  220,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-07-05",
+                             "dateDepart":  "2027-07-11",
+                             "imageUrl":  "https://windows10spotlight.com/wp-content/uploads/2022/03/613b1d23e63cd32a601d9a510583168d.jpg",
+                             "tags":  ["Plage", "Romantique", "Plongée"],
+                             "commentaires":  [
+                                                  "Les plages de sable fin sont bordées de rochers granitiques.",
+                                                  "Le lagon abrite une faune marine remarquable."
+                                              ]
+                         },
+                         {
+                             "id":  15,
+                             "nom":  "Mexico",
+                             "pays":  "Mexique",
+                             "hotel":  "Centro Histórico Boutique",
+                             "adresse":  "Calle de Bolívar 18, Ciudad de México 06000",
+                             "prix":  88,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-07-19",
+                             "dateDepart":  "2027-07-24",
+                             "imageUrl":  "https://tse1.mm.bing.net/th/id/OIP.8r_oBFomhyKingpznnH4jAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+                             "tags":  ["Culture", "Histoire", "Gastronomie"],
+                             "commentaires":  [
+                                                  "Le centre historique regorge de bâtiments colorés.",
+                                                  "La cuisine mexicaine est variée et savoureuse."
+                                              ]
+                         },
+                         {
+                             "id":  16,
+                             "nom":  "Vancouver",
+                             "pays":  "Canada",
+                             "hotel":  "Harbour Mountain Hotel",
+                             "adresse":  "1055 Canada Place, Vancouver V6C 0C3",
+                             "prix":  138,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-08-02",
+                             "dateDepart":  "2027-08-08",
+                             "imageUrl":  "https://www.shutterstock.com/image-photo/beautiful-view-downtown-vancouver-skyline-260nw-1531447955.jpg",
+                             "tags":  ["Nature", "Montagne", "Ville"],
+                             "commentaires":  [
+                                                  "La nature est accessible en quelques minutes depuis le centre.",
+                                                  "Le front de mer est idéal pour une balade au coucher du soleil."
+                                              ]
+                         },
+                         {
+                             "id":  17,
+                             "nom":  "Buenos Aires",
+                             "pays":  "Argentine",
+                             "hotel":  "Recoleta Grand Hotel",
+                             "adresse":  "Avenida Callao 1022, Buenos Aires",
+                             "prix":  91,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-09-11",
+                             "dateDepart":  "2027-09-16",
+                             "imageUrl":  "https://tse3.mm.bing.net/th/id/OIP.2vGd47gAuDXwb2YXAmL50QHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+                             "tags":  ["Tango", "Culture", "Gastronomie"],
+                             "commentaires":  [
+                                                  "Les spectacles de tango donnent une vraie âme à la ville.",
+                                                  "Les quartiers de Palermo et San Telmo sont très vivants."
+                                              ]
+                         },
+                         {
+                             "id":  18,
+                             "nom":  "Hanoï",
+                             "pays":  "Vietnam",
+                             "hotel":  "Old Quarter Lantern Hotel",
+                             "adresse":  "Hang Bac Street 28, Hanoï",
+                             "prix":  64,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-09-22",
+                             "dateDepart":  "2027-09-27",
+                             "imageUrl":  "https://aventure-vietnam.com/wp-content/uploads/2024/04/hanoi3.jpg",
+                             "tags":  ["Gastronomie", "Culture", "Marchés"],
+                             "commentaires":  [
+                                                  "Le vieux quartier est animé à toute heure.",
+                                                  "Les soupes et les cafés vietnamiens sont excellents."
+                                              ]
+                         },
+                         {
+                             "id":  19,
+                             "nom":  "Le Caire",
+                             "pays":  "Égypte",
+                             "hotel":  "Nile Pyramid View",
+                             "adresse":  "Pyramids Road 42, Giza",
+                             "prix":  73,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-10-15",
+                             "dateDepart":  "2027-10-20",
+                             "imageUrl":  "https://th.bing.com/th/id/R.1907054fcada8cc333a9ba63711dc4f2?rik=KYFAaHx%2fiPgOdA&pid=ImgRaw&r=0",
+                             "tags":  ["Histoire", "Désert", "Culture"],
+                             "commentaires":  [
+                                                  "Les pyramides sont saisissantes au lever du jour.",
+                                                  "Le musée égyptien complète parfaitement la visite."
+                                              ]
+                         },
+                         {
+                             "id":  20,
+                             "nom":  "Prague",
+                             "pays":  "République tchèque",
+                             "hotel":  "Charles Bridge Residence",
+                             "adresse":  "Karlova 18, Prague 110 00",
+                             "prix":  99,
+                             "devise":  "EUR",
+                             "unitePrix":  "personne",
+                             "dateArrivee":  "2027-11-14",
+                             "dateDepart":  "2027-11-19",
+                             "imageUrl":  "https://tse2.mm.bing.net/th/id/OIP.r68coVa-CrUk7IFIjn_vRQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+                             "tags":  ["Histoire", "Romantique", "Architecture"],
+                             "commentaires":  [
+                                                  "Le pont Charles est magnifique tôt le matin.",
+                                                  "Les rues de la vieille ville sont pleines de charme."
                                               ]
                          }
                      ],

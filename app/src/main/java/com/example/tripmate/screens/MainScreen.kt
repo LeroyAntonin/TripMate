@@ -14,8 +14,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.Button
 import androidx.compose.material3.CircularProgressIndicator
@@ -80,16 +80,23 @@ Column(
         
         DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)    
 
-        LazyRow(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.spacedBy(8.dp),
-        ) {
-            items(tags) { tag ->
-                FilterChip(
-                    selected = tag in uiState.filterTags,
-                    onClick = { onTagClick(tag) },
-                    label = { Text(tag) },
-                )
+        if (tags.isNotEmpty()) {
+            val rowSize = (tags.size + 1) / 2
+            Column(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                tags.chunked(rowSize).forEach { rowTags ->
+                    LazyRow(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.spacedBy(8.dp),
+                    ) {
+                        items(rowTags) { tag ->
+                            FilterChip(
+                                selected = tag in uiState.filterTags,
+                                onClick = { onTagClick(tag) },
+                                label = { Text(tag) },
+                            )
+                        }
+                    }
+                }
             }
         }
 

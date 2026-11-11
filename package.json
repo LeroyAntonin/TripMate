@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "api": "json-server --watch app/src/main/java/com/example/tripmate/db.json --host 0.0.0.0 --port 3000"
+  },
+  "dependencies": {
+    "json-server": "^1.0.0-beta.15"
+  }
+}

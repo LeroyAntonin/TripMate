@@ -2,13 +2,19 @@ package com.example.tripmate.api
 
 import com.example.tripmate.model.Destination
 import com.example.tripmate.model.Journal
+import com.example.tripmate.model.NewJournal
 import com.example.tripmate.network.KtorClient
+import io.ktor.client.request.setBody
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonPrimitive
 
 object DatabaseApi {
     private const val BASE_URL = "http://192.168.0.28:3000"
+
+    private fun JsonElement.intId(resource: String): Int =
+        jsonPrimitive.content.toIntOrNull()
+            ?: error("ID invalide pour $resource : ${jsonPrimitive.content}")
 
     suspend fun getDestinations(): List<Destination> =
         KtorClient.get<List<RemoteDestination>>("$BASE_URL/destinations")
@@ -17,6 +23,17 @@ object DatabaseApi {
     suspend fun getJournaux(): List<Journal> =
         KtorClient.get<List<RemoteJournal>>("$BASE_URL/journaux")
             .map { it.toJournal() }
+
+    suspend fun addJournal(journal: NewJournal): Journal {
+        val nextId = getJournaux()
+            .maxOfOrNull { it.id }
+            ?.let { it + 1 }
+            ?: 1
+
+        return KtorClient.post<RemoteJournal>("$BASE_URL/journaux") {
+            setBody(journal.copy(id = nextId))
+        }.toJournal()
+    }
 
     @Serializable
     private data class RemoteDestination(
@@ -35,7 +52,7 @@ object DatabaseApi {
         val commentaires: List<String>,
     ) {
         fun toDestination() = Destination(
-            id = id.jsonPrimitive.content.toInt(),
+            id = id.intId("destination"),
             nom = nom,
             pays = pays,
             hotel = hotel,
@@ -62,7 +79,7 @@ object DatabaseApi {
         val avis: String,
     ) {
         fun toJournal() = Journal(
-            id = id.jsonPrimitive.content.toInt(),
+            id = id.intId("journal"),
             ville = ville,
             pays = pays,
             dateArrivee = dateArrivee,

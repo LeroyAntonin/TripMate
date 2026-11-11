@@ -1,484 +1,555 @@
 {
-    "destinations":  [
-                         {
-                             "id":  1,
-                             "nom":  "Bali",
-                             "pays":  "Indonésie",
-                             "hotel":  "Ubud Rice Terrace Resort",
-                             "adresse":  "Jalan Raya Tegalalang, 80561",
-                             "prix":  89,
-                             "devise":  "EUR",
-                             "unitePrix":  " personne",
-                             "dateArrivee":  "2027-11-02",
-                             "dateDepart":  "2027-11-07",
-                             "imageUrl":  "https://th.bing.com/th/id/R.d524fbff3d91ee69957ece75d97554c1?rik=4cQq%2ff2e4JlgJw&pid=ImgRaw&r=0",
-                             "tags":  [
-                                          "Plage",
-                                          "Nature",
-                                          "Bien-être"
-                                      ],
-                             "commentaires":  [
-                                                  "Cadre verdoyant et très reposant.",
-                                                  "Les massages proposés au spa sont excellents."
-                                              ]
-                         },
-                         {
-                             "id":  2,
-                             "nom":  "Santorin",
-                             "pays":  "Grèce",
-                             "hotel":  "Caldera View Suites",
-                             "adresse":  "12 Oia Main Street, 84702",
-                             "prix":  210,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-22",
-                             "dateDepart":  "2027-06-27",
-                             "imageUrl":  "https://ulysse.com/news/wp-content/uploads/2025/02/Santorin.jpg",
-                             "tags":  [
-                                          "Plage",
-                                          "Romantique",
-                                          "Paysages"
-                                      ],
-                             "commentaires":  [
-                                                  "Le coucher de soleil depuis la terrasse est magnifique.",
-                                                  "Suite très calme avec une vue exceptionnelle."
-                                              ]
-                         },
-                         {
-                             "id":  3,
-                             "nom":  "Kyoto",
-                             "pays":  "Japon",
-                             "hotel":  "Gion Garden Ryokan",
-                             "adresse":  "35 Hanamikoji-dori, Kyoto 605-0074",
-                             "prix":  145,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-03-18",
-                             "dateDepart":  "2027-03-23",
-                             "imageUrl":  "https://www.agoda.com/wp-content/uploads/2024/04/kyoto-1244x700.jpg",
-                             "tags":  [
-                                          "Culture",
-                                          "Tradition",
-                                          "Gastronomie"
-                                      ],
-                             "commentaires":  [
-                                                  "Les temples et les jardins traditionnels sont magnifiques.",
-                                                  "Le ryokan offre une immersion authentique dans la culture japonaise."
-                                              ]
-                         },
-                         {
-                             "id":  4,
-                             "nom":  "New York",
-                             "pays":  "États-Unis",
-                             "hotel":  "Manhattan Skyline Hotel",
-                             "adresse":  "220 West 41st Street, New York 10018",
-                             "prix":  195,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-04-10",
-                             "dateDepart":  "2027-04-15",
-                             "imageUrl":  "https://wallpapers.com/images/hd/new-york-city-desktop-xlgf908jx8spk948.jpg",
-                             "tags":  [
-                                          "Ville",
-                                          "Culture",
-                                          "Shopping"
-                                      ],
-                             "commentaires":  [
-                                                  "La vue sur Manhattan est impressionnante de jour comme de nuit.",
-                                                  "Les musées et les quartiers emblématiques sont facilement accessibles."
-                                              ]
-                         },
-                         {
-                             "id":  5,
-                             "nom":  "Marrakech",
-                             "pays":  "Maroc",
-                             "hotel":  "Riad Jardin Majorelle",
-                             "adresse":  "18 Derb Sidi Bouamar, Marrakech 40000",
-                             "prix":  78,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-05-06",
-                             "dateDepart":  "2027-05-11",
-                             "imageUrl":  "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_862/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/gi69sm5egf5akbzn51m9/MarrakechMedina:GuidedWalkingTourofSouksHiddenGems.jpg",
-                             "tags":  [
-                                          "Histoire",
-                                          "Marchés",
-                                          "Bien-être"
-                                      ],
-                             "commentaires":  [
-                                                  "Le riad est paisible malgré l'animation de la médina.",
-                                                  "Les souks et les palais offrent un dépaysement total."
-                                              ]
-                         },
-                         {
-                             "id":  6,
-                             "nom":  "Rio de Janeiro",
-                             "pays":  "Brésil",
-                             "hotel":  "Copacabana Ocean View",
-                             "adresse":  "Avenida Atlântica 1702, Rio de Janeiro 22021-001",
-                             "prix":  112,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-08-14",
-                             "dateDepart":  "2027-08-20",
-                             "imageUrl":  "https://cdn.getyourguide.com/img/tour/60073ab2e0237.jpeg/98.jpg",
-                             "tags":  [
-                                          "Plage",
-                                          "Musique",
-                                          "Aventure"
-                                      ],
-                             "commentaires":  [
-                                                  "La plage de Copacabana est juste devant l'hôtel.",
-                                                  "Le panorama depuis le Corcovado est spectaculaire."
-                                              ]
-                         },
-                         {
-                             "id":  7,
-                             "nom":  "Queenstown",
-                             "pays":  "Nouvelle-Zélande",
-                             "hotel":  "Lake Wakatipu Lodge",
-                             "adresse":  "45 Lake Esplanade, Queenstown 9300",
-                             "prix":  132,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-10-03",
-                             "dateDepart":  "2027-10-09",
-                             "imageUrl":  "https://wallpaperaccess.com/full/1667228.jpg",
-                             "tags":  [
-                                          "Montagne",
-                                          "Nature",
-                                          "Aventure"
-                                      ],
-                             "commentaires":  [
-                                                  "Les montagnes autour du lac offrent un cadre exceptionnel.",
-                                                  "Les activités de plein air sont nombreuses et bien organisées."
-                                              ]
-                         },
-                         {
-                             "id":  8,
-                             "nom":  "Lisbonne",
-                             "pays":  "Portugal",
-                             "hotel":  "Alfama View Hotel",
-                             "adresse":  "Rua da Alfândega 12, 1100-016",
-                             "prix":  96,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-02-08",
-                             "dateDepart":  "2027-02-13",
-                             "imageUrl":  "https://th.bing.com/th/id/R.d8f66ceb264920386a3ae0046c505b65?rik=0PJDZzGq3chc8A&pid=ImgRaw&r=0",
-                             "tags":  ["Culture", "Gastronomie", "Ville"],
-                             "commentaires":  [
-                                                  "Les quartiers historiques se découvrent facilement à pied.",
-                                                  "Les spécialités locales et les azulejos sont incontournables."
-                                              ]
-                         },
-                         {
-                             "id":  9,
-                             "nom":  "Reykjavik",
-                             "pays":  "Islande",
-                             "hotel":  "Northern Lights Lodge",
-                             "adresse":  "Laugavegur 41, 101 Reykjavik",
-                             "prix":  158,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-02-20",
-                             "dateDepart":  "2027-02-25",
-                             "imageUrl":  "https://images.prismic.io/visiticeland/d209d40f-ca3d-44c1-9556-816f73b226ad_Reykjavik_Hallgrimskirkja_Autumn_Iceland.jpg?ixlib=gatsbyFP&auto=compress%2Cformat&fit=max&rect=0%2C115%2C1621%2C851&w=1200&h=630",
-                             "tags":  ["Aurores boréales", "Nature", "Aventure"],
-                             "commentaires":  [
-                                                  "Les paysages volcaniques sont impressionnants.",
-                                                  "Une excursion nocturne permet d'observer les aurores."
-                                              ]
-                         },
-                         {
-                             "id":  10,
-                             "nom":  "Istanbul",
-                             "pays":  "Turquie",
-                             "hotel":  "Bosphorus Palace Hotel",
-                             "adresse":  "Sultanahmet Meydani 8, 34122",
-                             "prix":  84,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-04-22",
-                             "dateDepart":  "2027-04-27",
-                             "imageUrl":  "https://wallpaperaccess.com/full/273961.jpg",
-                             "tags":  ["Histoire", "Culture", "Gastronomie"],
-                             "commentaires":  [
-                                                  "La mosquée Sainte-Sophie domine un quartier fascinant.",
-                                                  "La croisière sur le Bosphore offre de superbes panoramas."
-                                              ]
-                         },
-                         {
-                             "id":  11,
-                             "nom":  "Dubaï",
-                             "pays":  "Émirats arabes unis",
-                             "hotel":  "Marina Skyline Resort",
-                             "adresse":  "Marina Walk 22, Dubai",
-                             "prix":  175,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-05-18",
-                             "dateDepart":  "2027-05-23",
-                             "imageUrl":  "https://th.bing.com/th/id/R.8734c6085be8e1a91070c7ce7b58417d?rik=iXM5lFNTPzTScA&pid=ImgRaw&r=0",
-                             "tags":  ["Luxe", "Désert", "Ville"],
-                             "commentaires":  [
-                                                  "La marina est animée et agréable en soirée.",
-                                                  "Le safari dans le désert contraste avec les gratte-ciel."
-                                              ]
-                         },
-                         {
-                             "id":  12,
-                             "nom":  "Zanzibar",
-                             "pays":  "Tanzanie",
-                             "hotel":  "Stone Town Beach Resort",
-                             "adresse":  "Forodhani Road 6, Zanzibar",
-                             "prix":  105,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-03",
-                             "dateDepart":  "2027-06-09",
-                             "imageUrl":  "https://www.tia.ac.tz/wp-content/uploads/2024/08/ZANZIBAR-scaled.jpg",
-                             "tags":  ["Plage", "Plongée", "Nature"],
-                             "commentaires":  [
-                                                  "Les eaux turquoise sont parfaites pour la plongée.",
-                                                  "Stone Town possède une architecture pleine de caractère."
-                                              ]
-                         },
-                         {
-                             "id":  13,
-                             "nom":  "Petra",
-                             "pays":  "Jordanie",
-                             "hotel":  "Wadi Musa Heritage Hotel",
-                             "adresse":  "Tourism Street 15, Wadi Musa",
-                             "prix":  92,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-06-16",
-                             "dateDepart":  "2027-06-21",
-                             "imageUrl":  "https://static.vecteezy.com/system/resources/previews/013/962/573/large_2x/tourist-walk-by-caves-of-tombs-in-ancient-city-of-petra-jordan-it-is-know-as-the-loculi-petra-has-led-to-its-designation-as-unesco-world-heritage-site-photo.jpg",
-                             "tags":  ["Histoire", "Désert", "Aventure"],
-                             "commentaires":  [
-                                                  "Le site de Petra est encore plus impressionnant au lever du soleil.",
-                                                  "Les randonnées dans le canyon sont inoubliables."
-                                              ]
-                         },
-                         {
-                             "id":  14,
-                             "nom":  "Seychelles",
-                             "pays":  "Seychelles",
-                             "hotel":  "Mahé Coral Bay Resort",
-                             "adresse":  "Anse Royale 4, Mahé",
-                             "prix":  220,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-07-05",
-                             "dateDepart":  "2027-07-11",
-                             "imageUrl":  "https://windows10spotlight.com/wp-content/uploads/2022/03/613b1d23e63cd32a601d9a510583168d.jpg",
-                             "tags":  ["Plage", "Romantique", "Plongée"],
-                             "commentaires":  [
-                                                  "Les plages de sable fin sont bordées de rochers granitiques.",
-                                                  "Le lagon abrite une faune marine remarquable."
-                                              ]
-                         },
-                         {
-                             "id":  15,
-                             "nom":  "Mexico",
-                             "pays":  "Mexique",
-                             "hotel":  "Centro Histórico Boutique",
-                             "adresse":  "Calle de Bolívar 18, Ciudad de México 06000",
-                             "prix":  88,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-07-19",
-                             "dateDepart":  "2027-07-24",
-                             "imageUrl":  "https://tse1.mm.bing.net/th/id/OIP.8r_oBFomhyKingpznnH4jAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-                             "tags":  ["Culture", "Histoire", "Gastronomie"],
-                             "commentaires":  [
-                                                  "Le centre historique regorge de bâtiments colorés.",
-                                                  "La cuisine mexicaine est variée et savoureuse."
-                                              ]
-                         },
-                         {
-                             "id":  16,
-                             "nom":  "Vancouver",
-                             "pays":  "Canada",
-                             "hotel":  "Harbour Mountain Hotel",
-                             "adresse":  "1055 Canada Place, Vancouver V6C 0C3",
-                             "prix":  138,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-08-02",
-                             "dateDepart":  "2027-08-08",
-                             "imageUrl":  "https://www.shutterstock.com/image-photo/beautiful-view-downtown-vancouver-skyline-260nw-1531447955.jpg",
-                             "tags":  ["Nature", "Montagne", "Ville"],
-                             "commentaires":  [
-                                                  "La nature est accessible en quelques minutes depuis le centre.",
-                                                  "Le front de mer est idéal pour une balade au coucher du soleil."
-                                              ]
-                         },
-                         {
-                             "id":  17,
-                             "nom":  "Buenos Aires",
-                             "pays":  "Argentine",
-                             "hotel":  "Recoleta Grand Hotel",
-                             "adresse":  "Avenida Callao 1022, Buenos Aires",
-                             "prix":  91,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-09-11",
-                             "dateDepart":  "2027-09-16",
-                             "imageUrl":  "https://tse3.mm.bing.net/th/id/OIP.2vGd47gAuDXwb2YXAmL50QHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-                             "tags":  ["Tango", "Culture", "Gastronomie"],
-                             "commentaires":  [
-                                                  "Les spectacles de tango donnent une vraie âme à la ville.",
-                                                  "Les quartiers de Palermo et San Telmo sont très vivants."
-                                              ]
-                         },
-                         {
-                             "id":  18,
-                             "nom":  "Hanoï",
-                             "pays":  "Vietnam",
-                             "hotel":  "Old Quarter Lantern Hotel",
-                             "adresse":  "Hang Bac Street 28, Hanoï",
-                             "prix":  64,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-09-22",
-                             "dateDepart":  "2027-09-27",
-                             "imageUrl":  "https://aventure-vietnam.com/wp-content/uploads/2024/04/hanoi3.jpg",
-                             "tags":  ["Gastronomie", "Culture", "Marchés"],
-                             "commentaires":  [
-                                                  "Le vieux quartier est animé à toute heure.",
-                                                  "Les soupes et les cafés vietnamiens sont excellents."
-                                              ]
-                         },
-                         {
-                             "id":  19,
-                             "nom":  "Le Caire",
-                             "pays":  "Égypte",
-                             "hotel":  "Nile Pyramid View",
-                             "adresse":  "Pyramids Road 42, Giza",
-                             "prix":  73,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-10-15",
-                             "dateDepart":  "2027-10-20",
-                             "imageUrl":  "https://th.bing.com/th/id/R.1907054fcada8cc333a9ba63711dc4f2?rik=KYFAaHx%2fiPgOdA&pid=ImgRaw&r=0",
-                             "tags":  ["Histoire", "Désert", "Culture"],
-                             "commentaires":  [
-                                                  "Les pyramides sont saisissantes au lever du jour.",
-                                                  "Le musée égyptien complète parfaitement la visite."
-                                              ]
-                         },
-                         {
-                             "id":  20,
-                             "nom":  "Prague",
-                             "pays":  "République tchèque",
-                             "hotel":  "Charles Bridge Residence",
-                             "adresse":  "Karlova 18, Prague 110 00",
-                             "prix":  99,
-                             "devise":  "EUR",
-                             "unitePrix":  "personne",
-                             "dateArrivee":  "2027-11-14",
-                             "dateDepart":  "2027-11-19",
-                             "imageUrl":  "https://tse2.mm.bing.net/th/id/OIP.r68coVa-CrUk7IFIjn_vRQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-                             "tags":  ["Histoire", "Romantique", "Architecture"],
-                             "commentaires":  [
-                                                  "Le pont Charles est magnifique tôt le matin.",
-                                                  "Les rues de la vieille ville sont pleines de charme."
-                                              ]
-                         }
-                     ],
-    "journaux":  [
-                     {
-                         "id":  10,
-                         "ville":  "Marseille",
-                         "pays":  "France",
-                         "dateArrivee":  "12/04/2026",
-                         "dateDepart":  "16/04/2026",
-                         "imageUrl":  "https://cdn.generationvoyage.fr/2025/07/Le-Vieux-Port-Marseille-630x420.jpeg",
-                         "avis":  "Promenade sur le Vieux-Port, excursion dans les calanques et découverte de la cuisine méditerranéenne. Marseille est une ville vivante et ensoleillée, avec un patrimoine maritime particulièrement intéressant."
-                     },
-                     {
-                         "id":  20,
-                         "ville":  "Amsterdam",
-                         "pays":  "Pays-Bas",
-                         "dateArrivee":  "03/05/2026",
-                         "dateDepart":  "07/05/2026",
-                         "imageUrl":  "https://tse1.mm.bing.net/th/id/OIP.IINb1mT8QrzNJDXxL5rGSgHaE_?r=0\u0026rs=1\u0026pid=ImgDetMain\u0026o=7\u0026rm=3",
-                         "avis":  "Balade à vélo le long des canaux, visite du musée Van Gogh et promenade dans le quartier Jordaan. Amsterdam est agréable à parcourir à vélo et possède une ambiance culturelle très riche."
-                     },
-                     {
-                         "id":  30,
-                         "ville":  "Prague",
-                         "pays":  "République tchèque",
-                         "dateArrivee":  "18/05/2026",
-                         "dateDepart":  "22/05/2026",
-                         "imageUrl":  "https://tse3.mm.bing.net/th/id/OIP.vM6aG0e63AI2QBdm0ppDCgHaDx?r=0\u0026rs=1\u0026pid=ImgDetMain\u0026o=7\u0026rm=3",
-                         "avis":  "Visite du château de Prague, traversée du pont Charles et découverte de la vieille ville. Prague est une ville élégante et historique, dont l\u0027architecture est particulièrement remarquable."
-                     },
-                     {
-                         "id":  40,
-                         "ville":  "Vienne",
-                         "pays":  "Autriche",
-                         "dateArrivee":  "07/06/2026",
-                         "dateDepart":  "11/06/2026",
-                         "imageUrl":  "https://tse4.mm.bing.net/th/id/OIP.AjGoYIGyAlsrVgekT3avuQHaE1?r=0\u0026rs=1\u0026pid=ImgDetMain\u0026o=7\u0026rm=3",
-                         "avis":  "Visite du palais de Schönbrunn, découverte des musées du MuseumsQuartier et dégustation d\u0027une sachertorte. Vienne est raffinée et reposante, avec une scène artistique et musicale exceptionnelle."
-                     },
-                     {
-                         "id":  50,
-                         "ville":  "Dublin",
-                         "pays":  "Irlande",
-                         "dateArrivee":  "22/06/2026",
-                         "dateDepart":  "26/06/2026",
-                         "imageUrl":  "https://www.urlaubsguru.de/wp-content/uploads/2015/01/dublin-city-skyline-istock_000079625065_large-2.jpg",
-                         "avis":  "Visite du Trinity College, découverte du quartier de Temple Bar et excursion sur la côte irlandaise. Dublin est conviviale et chaleureuse, avec une culture locale très présente."
-                     },
-                     {
-                         "id":  60,
-                         "ville":  "Berlin",
-                         "pays":  "Allemagne",
-                         "dateArrivee":  "10/07/2026",
-                         "dateDepart":  "14/07/2026",
-                         "imageUrl":  "https://cdn.getyourguide.com/img/tour/58befcc740613.jpeg/148.jpg",
-                         "avis":  "Visite de l\u0027East Side Gallery, découverte de l\u0027île aux Musées et promenade dans le Tiergarten. Berlin est une capitale dynamique et créative, marquée par une histoire fascinante."
-                     },
-                     {
-                         "id":  70,
-                         "ville":  "Sydney",
-                         "pays":  "Australie",
-                         "dateArrivee":  "04/09/2026",
-                         "dateDepart":  "10/09/2026",
-                         "imageUrl":  "https://visitsydney.com/files/2018/10/visit-sydney.jpg",
-                         "avis":  "Visite de l\u0027Opéra, randonnée le long de la côte et baignade à Bondi Beach. Sydney offre un équilibre exceptionnel entre vie urbaine, plages et paysages naturels."
-                     },
-                     {
-                         "id":  80,
-                         "ville":  "Vancouver",
-                         "pays":  "Canada",
-                         "dateArrivee":  "19/09/2026",
-                         "dateDepart":  "25/09/2026",
-                         "imageUrl":  "https://www.tripsavvy.com/thmb/uqNzAoqBIraz1RIKIPklL3H-z5Y=/2270x1321/filters:fill(auto,1)/GettyImages-629829924-5bdb57f74cedfd0026ae431f.jpg",
-                         "avis":  "Randonnée dans Stanley Park, découverte de Granville Island et excursion dans les montagnes voisines. Vancouver est une destination accueillante où la nature est facilement accessible depuis la ville."
-                     },
-                     {
-                         "id":  90,
-                         "ville":  "Le Cap",
-                         "pays":  "Afrique du Sud",
-                         "dateArrivee":  "08/10/2026",
-                         "dateDepart":  "13/10/2026",
-                         "imageUrl":  "https://media.routard.com/image/94/8/fb-cape-town.1472948.jpg",
-                         "avis":  "Ascension de la montagne de la Table, visite du quartier de Bo-Kaap et découverte de la péninsule du Cap. Le Cap séduit par ses paysages spectaculaires, son climat agréable et sa diversité culturelle."
-                     },
-                     {
-                         "id":  100,
-                         "ville":  "Séoul",
-                         "pays":  "Corée du Sud",
-                         "dateArrivee":  "02/11/2026",
-                         "dateDepart":  "09/11/2026",
-                         "imageUrl":  "https://content.r9cdn.net/rimg/dimg/30/0c/6318617a-city-35982-163ff913019.jpg?width=1366\u0026height=768\u0026xhint=2421\u0026yhint=1876\u0026crop=true",
-                         "avis":  "Visite du palais de Gyeongbokgung, découverte des quartiers de Hongdae et dégustation de spécialités coréennes. Séoul est une métropole moderne et énergique qui conserve un patrimoine traditionnel remarquable."
-                     }
-                 ]
+  "destinations": [
+    {
+      "id": 1,
+      "nom": "Bali",
+      "pays": "Indonésie",
+      "hotel": "Ubud Rice Terrace Resort",
+      "adresse": "Jalan Raya Tegalalang, 80561",
+      "prix": 89,
+      "devise": "EUR",
+      "unitePrix": " personne",
+      "dateArrivee": "2027-11-02",
+      "dateDepart": "2027-11-07",
+      "imageUrl": "https://th.bing.com/th/id/R.d524fbff3d91ee69957ece75d97554c1?rik=4cQq%2ff2e4JlgJw&pid=ImgRaw&r=0",
+      "tags": [
+        "Plage",
+        "Nature",
+        "Bien-être"
+      ],
+      "commentaires": [
+        "Cadre verdoyant et très reposant.",
+        "Les massages proposés au spa sont excellents."
+      ]
+    },
+    {
+      "id": 2,
+      "nom": "Santorin",
+      "pays": "Grèce",
+      "hotel": "Caldera View Suites",
+      "adresse": "12 Oia Main Street, 84702",
+      "prix": 210,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-06-22",
+      "dateDepart": "2027-06-27",
+      "imageUrl": "https://ulysse.com/news/wp-content/uploads/2025/02/Santorin.jpg",
+      "tags": [
+        "Plage",
+        "Romantique",
+        "Paysages"
+      ],
+      "commentaires": [
+        "Le coucher de soleil depuis la terrasse est magnifique.",
+        "Suite très calme avec une vue exceptionnelle."
+      ]
+    },
+    {
+      "id": 3,
+      "nom": "Kyoto",
+      "pays": "Japon",
+      "hotel": "Gion Garden Ryokan",
+      "adresse": "35 Hanamikoji-dori, Kyoto 605-0074",
+      "prix": 145,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-03-18",
+      "dateDepart": "2027-03-23",
+      "imageUrl": "https://www.agoda.com/wp-content/uploads/2024/04/kyoto-1244x700.jpg",
+      "tags": [
+        "Culture",
+        "Tradition",
+        "Gastronomie"
+      ],
+      "commentaires": [
+        "Les temples et les jardins traditionnels sont magnifiques.",
+        "Le ryokan offre une immersion authentique dans la culture japonaise."
+      ]
+    },
+    {
+      "id": 4,
+      "nom": "New York",
+      "pays": "États-Unis",
+      "hotel": "Manhattan Skyline Hotel",
+      "adresse": "220 West 41st Street, New York 10018",
+      "prix": 195,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-04-10",
+      "dateDepart": "2027-04-15",
+      "imageUrl": "https://wallpapers.com/images/hd/new-york-city-desktop-xlgf908jx8spk948.jpg",
+      "tags": [
+        "Ville",
+        "Culture",
+        "Shopping"
+      ],
+      "commentaires": [
+        "La vue sur Manhattan est impressionnante de jour comme de nuit.",
+        "Les musées et les quartiers emblématiques sont facilement accessibles."
+      ]
+    },
+    {
+      "id": 5,
+      "nom": "Marrakech",
+      "pays": "Maroc",
+      "hotel": "Riad Jardin Majorelle",
+      "adresse": "18 Derb Sidi Bouamar, Marrakech 40000",
+      "prix": 78,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-05-06",
+      "dateDepart": "2027-05-11",
+      "imageUrl": "https://res.klook.com/images/fl_lossy.progressive,q_65/c_fill,w_1295,h_862/w_80,x_15,y_15,g_south_west,l_Klook_water_br_trans_yhcmh3/activities/gi69sm5egf5akbzn51m9/MarrakechMedina:GuidedWalkingTourofSouksHiddenGems.jpg",
+      "tags": [
+        "Histoire",
+        "Marchés",
+        "Bien-être"
+      ],
+      "commentaires": [
+        "Le riad est paisible malgré l'animation de la médina.",
+        "Les souks et les palais offrent un dépaysement total."
+      ]
+    },
+    {
+      "id": 6,
+      "nom": "Rio de Janeiro",
+      "pays": "Brésil",
+      "hotel": "Copacabana Ocean View",
+      "adresse": "Avenida Atlântica 1702, Rio de Janeiro 22021-001",
+      "prix": 112,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-08-14",
+      "dateDepart": "2027-08-20",
+      "imageUrl": "https://cdn.getyourguide.com/img/tour/60073ab2e0237.jpeg/98.jpg",
+      "tags": [
+        "Plage",
+        "Musique",
+        "Aventure"
+      ],
+      "commentaires": [
+        "La plage de Copacabana est juste devant l'hôtel.",
+        "Le panorama depuis le Corcovado est spectaculaire."
+      ]
+    },
+    {
+      "id": 7,
+      "nom": "Queenstown",
+      "pays": "Nouvelle-Zélande",
+      "hotel": "Lake Wakatipu Lodge",
+      "adresse": "45 Lake Esplanade, Queenstown 9300",
+      "prix": 132,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-10-03",
+      "dateDepart": "2027-10-09",
+      "imageUrl": "https://wallpaperaccess.com/full/1667228.jpg",
+      "tags": [
+        "Montagne",
+        "Nature",
+        "Aventure"
+      ],
+      "commentaires": [
+        "Les montagnes autour du lac offrent un cadre exceptionnel.",
+        "Les activités de plein air sont nombreuses et bien organisées."
+      ]
+    },
+    {
+      "id": 8,
+      "nom": "Lisbonne",
+      "pays": "Portugal",
+      "hotel": "Alfama View Hotel",
+      "adresse": "Rua da Alfândega 12, 1100-016",
+      "prix": 96,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-02-08",
+      "dateDepart": "2027-02-13",
+      "imageUrl": "https://th.bing.com/th/id/R.d8f66ceb264920386a3ae0046c505b65?rik=0PJDZzGq3chc8A&pid=ImgRaw&r=0",
+      "tags": [
+        "Culture",
+        "Gastronomie",
+        "Ville"
+      ],
+      "commentaires": [
+        "Les quartiers historiques se découvrent facilement à pied.",
+        "Les spécialités locales et les azulejos sont incontournables."
+      ]
+    },
+    {
+      "id": 9,
+      "nom": "Reykjavik",
+      "pays": "Islande",
+      "hotel": "Northern Lights Lodge",
+      "adresse": "Laugavegur 41, 101 Reykjavik",
+      "prix": 158,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-02-20",
+      "dateDepart": "2027-02-25",
+      "imageUrl": "https://images.prismic.io/visiticeland/d209d40f-ca3d-44c1-9556-816f73b226ad_Reykjavik_Hallgrimskirkja_Autumn_Iceland.jpg?ixlib=gatsbyFP&auto=compress%2Cformat&fit=max&rect=0%2C115%2C1621%2C851&w=1200&h=630",
+      "tags": [
+        "Aurores boréales",
+        "Nature",
+        "Aventure"
+      ],
+      "commentaires": [
+        "Les paysages volcaniques sont impressionnants.",
+        "Une excursion nocturne permet d'observer les aurores."
+      ]
+    },
+    {
+      "id": 10,
+      "nom": "Istanbul",
+      "pays": "Turquie",
+      "hotel": "Bosphorus Palace Hotel",
+      "adresse": "Sultanahmet Meydani 8, 34122",
+      "prix": 84,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-04-22",
+      "dateDepart": "2027-04-27",
+      "imageUrl": "https://wallpaperaccess.com/full/273961.jpg",
+      "tags": [
+        "Histoire",
+        "Culture",
+        "Gastronomie"
+      ],
+      "commentaires": [
+        "La mosquée Sainte-Sophie domine un quartier fascinant.",
+        "La croisière sur le Bosphore offre de superbes panoramas."
+      ]
+    },
+    {
+      "id": 11,
+      "nom": "Dubaï",
+      "pays": "Émirats arabes unis",
+      "hotel": "Marina Skyline Resort",
+      "adresse": "Marina Walk 22, Dubai",
+      "prix": 175,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-05-18",
+      "dateDepart": "2027-05-23",
+      "imageUrl": "https://th.bing.com/th/id/R.8734c6085be8e1a91070c7ce7b58417d?rik=iXM5lFNTPzTScA&pid=ImgRaw&r=0",
+      "tags": [
+        "Luxe",
+        "Désert",
+        "Ville"
+      ],
+      "commentaires": [
+        "La marina est animée et agréable en soirée.",
+        "Le safari dans le désert contraste avec les gratte-ciel."
+      ]
+    },
+    {
+      "id": 12,
+      "nom": "Zanzibar",
+      "pays": "Tanzanie",
+      "hotel": "Stone Town Beach Resort",
+      "adresse": "Forodhani Road 6, Zanzibar",
+      "prix": 105,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-06-03",
+      "dateDepart": "2027-06-09",
+      "imageUrl": "https://www.tia.ac.tz/wp-content/uploads/2024/08/ZANZIBAR-scaled.jpg",
+      "tags": [
+        "Plage",
+        "Plongée",
+        "Nature"
+      ],
+      "commentaires": [
+        "Les eaux turquoise sont parfaites pour la plongée.",
+        "Stone Town possède une architecture pleine de caractère."
+      ]
+    },
+    {
+      "id": 13,
+      "nom": "Petra",
+      "pays": "Jordanie",
+      "hotel": "Wadi Musa Heritage Hotel",
+      "adresse": "Tourism Street 15, Wadi Musa",
+      "prix": 92,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-06-16",
+      "dateDepart": "2027-06-21",
+      "imageUrl": "https://static.vecteezy.com/system/resources/previews/013/962/573/large_2x/tourist-walk-by-caves-of-tombs-in-ancient-city-of-petra-jordan-it-is-know-as-the-loculi-petra-has-led-to-its-designation-as-unesco-world-heritage-site-photo.jpg",
+      "tags": [
+        "Histoire",
+        "Désert",
+        "Aventure"
+      ],
+      "commentaires": [
+        "Le site de Petra est encore plus impressionnant au lever du soleil.",
+        "Les randonnées dans le canyon sont inoubliables."
+      ]
+    },
+    {
+      "id": 14,
+      "nom": "Seychelles",
+      "pays": "Seychelles",
+      "hotel": "Mahé Coral Bay Resort",
+      "adresse": "Anse Royale 4, Mahé",
+      "prix": 220,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-07-05",
+      "dateDepart": "2027-07-11",
+      "imageUrl": "https://windows10spotlight.com/wp-content/uploads/2022/03/613b1d23e63cd32a601d9a510583168d.jpg",
+      "tags": [
+        "Plage",
+        "Romantique",
+        "Plongée"
+      ],
+      "commentaires": [
+        "Les plages de sable fin sont bordées de rochers granitiques.",
+        "Le lagon abrite une faune marine remarquable."
+      ]
+    },
+    {
+      "id": 15,
+      "nom": "Mexico",
+      "pays": "Mexique",
+      "hotel": "Centro Histórico Boutique",
+      "adresse": "Calle de Bolívar 18, Ciudad de México 06000",
+      "prix": 88,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-07-19",
+      "dateDepart": "2027-07-24",
+      "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.8r_oBFomhyKingpznnH4jAHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "tags": [
+        "Culture",
+        "Histoire",
+        "Gastronomie"
+      ],
+      "commentaires": [
+        "Le centre historique regorge de bâtiments colorés.",
+        "La cuisine mexicaine est variée et savoureuse."
+      ]
+    },
+    {
+      "id": 16,
+      "nom": "Vancouver",
+      "pays": "Canada",
+      "hotel": "Harbour Mountain Hotel",
+      "adresse": "1055 Canada Place, Vancouver V6C 0C3",
+      "prix": 138,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-08-02",
+      "dateDepart": "2027-08-08",
+      "imageUrl": "https://www.shutterstock.com/image-photo/beautiful-view-downtown-vancouver-skyline-260nw-1531447955.jpg",
+      "tags": [
+        "Nature",
+        "Montagne",
+        "Ville"
+      ],
+      "commentaires": [
+        "La nature est accessible en quelques minutes depuis le centre.",
+        "Le front de mer est idéal pour une balade au coucher du soleil."
+      ]
+    },
+    {
+      "id": 17,
+      "nom": "Buenos Aires",
+      "pays": "Argentine",
+      "hotel": "Recoleta Grand Hotel",
+      "adresse": "Avenida Callao 1022, Buenos Aires",
+      "prix": 91,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-09-11",
+      "dateDepart": "2027-09-16",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.2vGd47gAuDXwb2YXAmL50QHaFj?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "tags": [
+        "Tango",
+        "Culture",
+        "Gastronomie"
+      ],
+      "commentaires": [
+        "Les spectacles de tango donnent une vraie âme à la ville.",
+        "Les quartiers de Palermo et San Telmo sont très vivants."
+      ]
+    },
+    {
+      "id": 18,
+      "nom": "Hanoï",
+      "pays": "Vietnam",
+      "hotel": "Old Quarter Lantern Hotel",
+      "adresse": "Hang Bac Street 28, Hanoï",
+      "prix": 64,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-09-22",
+      "dateDepart": "2027-09-27",
+      "imageUrl": "https://aventure-vietnam.com/wp-content/uploads/2024/04/hanoi3.jpg",
+      "tags": [
+        "Gastronomie",
+        "Culture",
+        "Marchés"
+      ],
+      "commentaires": [
+        "Le vieux quartier est animé à toute heure.",
+        "Les soupes et les cafés vietnamiens sont excellents."
+      ]
+    },
+    {
+      "id": 19,
+      "nom": "Le Caire",
+      "pays": "Égypte",
+      "hotel": "Nile Pyramid View",
+      "adresse": "Pyramids Road 42, Giza",
+      "prix": 73,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-10-15",
+      "dateDepart": "2027-10-20",
+      "imageUrl": "https://th.bing.com/th/id/R.1907054fcada8cc333a9ba63711dc4f2?rik=KYFAaHx%2fiPgOdA&pid=ImgRaw&r=0",
+      "tags": [
+        "Histoire",
+        "Désert",
+        "Culture"
+      ],
+      "commentaires": [
+        "Les pyramides sont saisissantes au lever du jour.",
+        "Le musée égyptien complète parfaitement la visite."
+      ]
+    },
+    {
+      "id": 20,
+      "nom": "Prague",
+      "pays": "République tchèque",
+      "hotel": "Charles Bridge Residence",
+      "adresse": "Karlova 18, Prague 110 00",
+      "prix": 99,
+      "devise": "EUR",
+      "unitePrix": "personne",
+      "dateArrivee": "2027-11-14",
+      "dateDepart": "2027-11-19",
+      "imageUrl": "https://tse2.mm.bing.net/th/id/OIP.r68coVa-CrUk7IFIjn_vRQHaEK?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "tags": [
+        "Histoire",
+        "Romantique",
+        "Architecture"
+      ],
+      "commentaires": [
+        "Le pont Charles est magnifique tôt le matin.",
+        "Les rues de la vieille ville sont pleines de charme."
+      ]
+    }
+  ],
+  "journaux": [
+    {
+      "id": 10,
+      "ville": "Marseille",
+      "pays": "France",
+      "dateArrivee": "12/04/2026",
+      "dateDepart": "16/04/2026",
+      "imageUrl": "https://cdn.generationvoyage.fr/2025/07/Le-Vieux-Port-Marseille-630x420.jpeg",
+      "avis": "Promenade sur le Vieux-Port, excursion dans les calanques et découverte de la cuisine méditerranéenne. Marseille est une ville vivante et ensoleillée, avec un patrimoine maritime particulièrement intéressant."
+    },
+    {
+      "id": 20,
+      "ville": "Amsterdam",
+      "pays": "Pays-Bas",
+      "dateArrivee": "03/05/2026",
+      "dateDepart": "07/05/2026",
+      "imageUrl": "https://tse1.mm.bing.net/th/id/OIP.IINb1mT8QrzNJDXxL5rGSgHaE_?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "avis": "Balade à vélo le long des canaux, visite du musée Van Gogh et promenade dans le quartier Jordaan. Amsterdam est agréable à parcourir à vélo et possède une ambiance culturelle très riche."
+    },
+    {
+      "id": 30,
+      "ville": "Prague",
+      "pays": "République tchèque",
+      "dateArrivee": "18/05/2026",
+      "dateDepart": "22/05/2026",
+      "imageUrl": "https://tse3.mm.bing.net/th/id/OIP.vM6aG0e63AI2QBdm0ppDCgHaDx?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "avis": "Visite du château de Prague, traversée du pont Charles et découverte de la vieille ville. Prague est une ville élégante et historique, dont l'architecture est particulièrement remarquable."
+    },
+    {
+      "id": 40,
+      "ville": "Vienne",
+      "pays": "Autriche",
+      "dateArrivee": "07/06/2026",
+      "dateDepart": "11/06/2026",
+      "imageUrl": "https://tse4.mm.bing.net/th/id/OIP.AjGoYIGyAlsrVgekT3avuQHaE1?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "avis": "Visite du palais de Schönbrunn, découverte des musées du MuseumsQuartier et dégustation d'une sachertorte. Vienne est raffinée et reposante, avec une scène artistique et musicale exceptionnelle."
+    },
+    {
+      "id": 50,
+      "ville": "Dublin",
+      "pays": "Irlande",
+      "dateArrivee": "22/06/2026",
+      "dateDepart": "26/06/2026",
+      "imageUrl": "https://www.urlaubsguru.de/wp-content/uploads/2015/01/dublin-city-skyline-istock_000079625065_large-2.jpg",
+      "avis": "Visite du Trinity College, découverte du quartier de Temple Bar et excursion sur la côte irlandaise. Dublin est conviviale et chaleureuse, avec une culture locale très présente."
+    },
+    {
+      "id": 60,
+      "ville": "Berlin",
+      "pays": "Allemagne",
+      "dateArrivee": "10/07/2026",
+      "dateDepart": "14/07/2026",
+      "imageUrl": "https://cdn.getyourguide.com/img/tour/58befcc740613.jpeg/148.jpg",
+      "avis": "Visite de l'East Side Gallery, découverte de l'île aux Musées et promenade dans le Tiergarten. Berlin est une capitale dynamique et créative, marquée par une histoire fascinante."
+    },
+    {
+      "id": 70,
+      "ville": "Sydney",
+      "pays": "Australie",
+      "dateArrivee": "04/09/2026",
+      "dateDepart": "10/09/2026",
+      "imageUrl": "https://visitsydney.com/files/2018/10/visit-sydney.jpg",
+      "avis": "Visite de l'Opéra, randonnée le long de la côte et baignade à Bondi Beach. Sydney offre un équilibre exceptionnel entre vie urbaine, plages et paysages naturels."
+    },
+    {
+      "id": 80,
+      "ville": "Vancouver",
+      "pays": "Canada",
+      "dateArrivee": "19/09/2026",
+      "dateDepart": "25/09/2026",
+      "imageUrl": "https://www.tripsavvy.com/thmb/uqNzAoqBIraz1RIKIPklL3H-z5Y=/2270x1321/filters:fill(auto,1)/GettyImages-629829924-5bdb57f74cedfd0026ae431f.jpg",
+      "avis": "Randonnée dans Stanley Park, découverte de Granville Island et excursion dans les montagnes voisines. Vancouver est une destination accueillante où la nature est facilement accessible depuis la ville."
+    },
+    {
+      "id": 90,
+      "ville": "Le Cap",
+      "pays": "Afrique du Sud",
+      "dateArrivee": "08/10/2026",
+      "dateDepart": "13/10/2026",
+      "imageUrl": "https://media.routard.com/image/94/8/fb-cape-town.1472948.jpg",
+      "avis": "Ascension de la montagne de la Table, visite du quartier de Bo-Kaap et découverte de la péninsule du Cap. Le Cap séduit par ses paysages spectaculaires, son climat agréable et sa diversité culturelle."
+    },
+    {
+      "id": 100,
+      "ville": "Séoul",
+      "pays": "Corée du Sud",
+      "dateArrivee": "02/11/2026",
+      "dateDepart": "09/11/2026",
+      "imageUrl": "https://content.r9cdn.net/rimg/dimg/30/0c/6318617a-city-35982-163ff913019.jpg?width=1366&height=768&xhint=2421&yhint=1876&crop=true",
+      "avis": "Visite du palais de Gyeongbokgung, découverte des quartiers de Hongdae et dégustation de spécialités coréennes. Séoul est une métropole moderne et énergique qui conserve un patrimoine traditionnel remarquable."
+    },
+    {
+      "id": 101,
+      "ville": "ss",
+      "pays": "ss",
+      "dateArrivee": "15/15/1555",
+      "dateDepart": "15/15/1555",
+      "imageUrl": "ss",
+      "avis": "ss"
+    },
+    {
+      "id": 102,
+      "ville": "ss",
+      "pays": "ss",
+      "dateArrivee": "11/11/11",
+      "dateDepart": "11/11/11",
+      "imageUrl": "ss",
+      "avis": "ss"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }

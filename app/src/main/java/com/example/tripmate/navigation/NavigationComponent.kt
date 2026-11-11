@@ -117,7 +117,12 @@ fun DestinationsNavigation() {
                 }
 
                 composable("addJournal") {
-                    AddJournalScreen()
+                    AddJournalScreen(
+                        onJournalAdded = {
+                            vmj.refresh()
+                            navController.popBackStack()
+                        }
+                    )
                 }
 
                 composable(route = "journalDetails/{journalId}", arguments = listOf(navArgument("journalId") { type = NavType.IntType })

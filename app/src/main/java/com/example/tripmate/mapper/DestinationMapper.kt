@@ -3,6 +3,7 @@ package com.example.tripmate.mapper
 import com.example.tripmate.model.Destination
 import com.example.tripmate.model.SingleDestinationDto
 
+// Mapper pour convertir un SingleDestinationDto en Destination
 fun mapDestination(dto: SingleDestinationDto): Destination {
     return Destination(
         id = dto.id,

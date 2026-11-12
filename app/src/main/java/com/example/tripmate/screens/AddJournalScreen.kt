@@ -35,12 +35,14 @@ import com.example.tripmate.model.Journal
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.rememberCoroutineScope
 
+// Écran pour ajouter ou modifier un journal
 @Composable
 fun AddJournalScreen(
     onJournalAdded: () -> Unit,
     journalToEdit: Journal? = null,
 ) {
     val coroutineScope = rememberCoroutineScope()
+    // Le même formulaire sert à créer un journal ou à modifier un journal existant.
     val isEditing = journalToEdit != null
     var ville by rememberSaveable(journalToEdit?.id) { mutableStateOf(journalToEdit?.ville.orEmpty()) }
     var pays by rememberSaveable(journalToEdit?.id) { mutableStateOf(journalToEdit?.pays.orEmpty()) }
@@ -128,6 +130,7 @@ fun AddJournalScreen(
         }
         Button(
             onClick = {
+                // Vérifie les champs avant d'envoyer la requête à l'API.
                 if (ville.isBlank() || pays.isBlank() || dateArrivee.text.isBlank() ||
                     dateDepart.text.isBlank() || avis.isBlank()
                 ) {
@@ -153,6 +156,7 @@ fun AddJournalScreen(
                             } else {
                                 DatabaseApi.addJournal(journal)
                             }
+                            // Retourne à la liste après une sauvegarde réussie.
                             onJournalAdded()
                         } catch (exception: Exception) {
                             error = "Impossible d'enregistrer le journal : ${exception.message}"

@@ -17,6 +17,7 @@ import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import io.ktor.client.HttpClient as KtorHttpClient
 
+// Client Ktor identique à celui de Netfloux
 object KtorClient {
     private const val TIMEOUT_MILLIS = 15_000L
 
@@ -68,6 +69,7 @@ object KtorClient {
         url: String,
         block: HttpRequestBuilder.() -> Unit = {}
     ) {
+        // Une suppression peut répondre sans contenu.
         client.delete(url, block)
     }
 }

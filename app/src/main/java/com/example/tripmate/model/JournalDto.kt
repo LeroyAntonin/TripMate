@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 data class JournalDto(val journal: List<SingleJournalDto>)
 
-
+// DTO pour représenter un journal individuel
 data class SingleJournalDto(
     val id: Int,
     val ville: String,
@@ -15,6 +15,7 @@ data class SingleJournalDto(
     val avis: String
 )
 
+// DTO pour représenter un nouveau journal à créer
 @Serializable
 data class NewJournal(
     val id: Int,

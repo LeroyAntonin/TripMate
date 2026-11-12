@@ -10,7 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import com.example.tripmate.R
 
-
+// BottomBar pour la navigation entre les écrans principaux
 @Composable
 fun TripBottomBar(
     selectedRoute: String,
@@ -28,7 +28,8 @@ fun TripBottomBar(
     containerColor = MaterialTheme.colorScheme.primary,
     contentColor = MaterialTheme.colorScheme.onPrimary,
 ) {
-    
+    // Items de la BottomBar permettant la navigation
+
     NavigationBarItem(
     selected = selectedRoute == "home",
     onClick = { onNavigate("home") },

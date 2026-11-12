@@ -28,6 +28,7 @@ class JournalViewModel : ViewModel() {
     val uiState: StateFlow<JournalUiState> = _uiState.asStateFlow()
 
     init {
+        // Charge les journaux dès l'ouverture de leur section.
         refresh()
     }
 
@@ -36,6 +37,7 @@ class JournalViewModel : ViewModel() {
     }
     fun refresh() {
         viewModelScope.launch {
+            // Réinitialise l'erreur avant chaque nouvelle tentative.
             _uiState.update { it.copy(isLoading = true, error = null) }
             try {
                 val journaux = DatabaseApi.getJournaux()

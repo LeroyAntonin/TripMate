@@ -32,11 +32,11 @@ import com.example.tripmate.screens.AddJournalScreen
 import com.example.tripmate.screens.HomeScreen
 import com.example.tripmate.viewmodel.JournalViewModel
 
-
+// Gestion de la navigation
 @Composable
 fun DestinationsNavigation() {
     val navController = rememberNavController()
-    
+    // 2 ViewModel et 2 uiState pour gérer les destinations et les journaux
     val vmd: DestinationsViewModel = viewModel()
     val uiStateD by vmd.uiState.collectAsStateWithLifecycle()
     val vmj: JournalViewModel = viewModel()
@@ -53,6 +53,7 @@ fun DestinationsNavigation() {
     
     
     
+    // La TopBar et la BottomBar utilisent la même navigation.
     TripAppScaffold(
     selectedRoute = selectedRoute,
     showBack = showBack,
@@ -90,7 +91,7 @@ fun DestinationsNavigation() {
                     )
                 }
                 
-                composable(route = "details/{destinationId}", arguments = listOf(navArgument("destinationId") { type = NavType.IntType })
+                composable(route = "details/{destinationId}", arguments = listOf(navArgument("destinationId") { type = NavType.IntType }) // On envoie les infos sur la bonne destination
                     ) {
                         entry ->
                         val destinationId = entry.arguments?.getInt("destinationId")
@@ -126,7 +127,7 @@ fun DestinationsNavigation() {
                     )
                 }
 
-                composable(route = "journalDetails/{journalId}", arguments = listOf(navArgument("journalId") { type = NavType.IntType })
+                composable(route = "journalDetails/{journalId}", arguments = listOf(navArgument("journalId") { type = NavType.IntType }) // On envoie les infos sur le bon journal
                 ) {
                         entry ->
                     val journalId = entry.arguments?.getInt("journalId")
@@ -147,7 +148,7 @@ fun DestinationsNavigation() {
 
                 composable(
                     route = "editJournal/{journalId}",
-                    arguments = listOf(navArgument("journalId") { type = NavType.IntType }),
+                    arguments = listOf(navArgument("journalId") { type = NavType.IntType }), // On envoie les infos sur le bon journal
                 ) { entry ->
                     val journalId = entry.arguments?.getInt("journalId")
                     val journal = uiStateJ.journaux.firstOrNull { it.id == journalId }
@@ -162,7 +163,7 @@ fun DestinationsNavigation() {
                 
                 composable("profile") {
                     ProfileScreen(
-                        tags = uiStateD.destinations.flatMap { it.tags }.distinct(),
+                        tags = uiStateD.destinations.flatMap { it.tags }.distinct(), // On récupère tous les tags uniques
                         selectedTags = uiStateD.preferredTags,
                         onTagClick = vmd::togglePreferredTag,
                     )

@@ -3,6 +3,7 @@ package com.example.tripmate.mapper
 import com.example.tripmate.model.Journal
 import com.example.tripmate.model.SingleJournalDto
 
+// Mapper pour convertir un SingleJournalDto en Journal
 fun mapJournal(dto: SingleJournalDto): Journal {
     return Journal(
         id = dto.id,

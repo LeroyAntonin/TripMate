@@ -23,6 +23,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.example.tripmate.model.Destination
 
+// Card pour les Destinations dans MainScreen
 @Composable
 fun DestinationCard(
     destination: Destination,

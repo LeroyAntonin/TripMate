@@ -164,6 +164,7 @@ if (destination == null) {
             )
         }
 
+        // Affiche la liste locale pour montrer le commentaire sans recharger l'écran.
         if (commentaires.isEmpty()) {
             Text(
                 text = "Aucun commentaire pour cette destination.",

@@ -2,6 +2,7 @@ package com.example.tripmate.model
 
 import kotlinx.serialization.Serializable
 
+// Class représentant une destination avec ses détails
 @Serializable
 data class Destination(
     val id: Int,

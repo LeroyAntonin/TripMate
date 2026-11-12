@@ -13,12 +13,11 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 
-
+// SearchBar pour rechercher une destination dans MainScreen et JournalScreen
 @Composable
 fun DestinationSearchBar(value: String, onValueChange: (String) -> Unit) {
 
-    
-    // var query by rememberSaveable { mutableStateOf("") }
+
     
             OutlinedTextField(
             colors =

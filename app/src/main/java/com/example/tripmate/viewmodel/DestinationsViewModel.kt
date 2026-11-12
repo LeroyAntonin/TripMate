@@ -29,6 +29,7 @@ class DestinationsViewModel : ViewModel() {
     val uiState: StateFlow<DestinationsUiState> = _uiState.asStateFlow()
     
     init {
+    // Charge les destinations dès la création du ViewModel.
     refresh()
     }
     
@@ -55,6 +56,7 @@ class DestinationsViewModel : ViewModel() {
 }
     fun refresh() {
         viewModelScope.launch {
+            // L'état de chargement évite d'afficher une liste incomplète.
             _uiState.update { it.copy(isLoading = true, error = null) }
             try {
                 val destinations = DatabaseApi.getDestinations()

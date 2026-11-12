@@ -51,6 +51,7 @@ fun JournalScreen(
         ) {
 
 
+            // Recherche dans le nom de la ville et dans le pays.
             val visibleDestinations = uiState.journaux.filter {
                 it.ville.contains(uiState.query, ignoreCase = true) ||
                     it.pays.contains(uiState.query, ignoreCase = true)

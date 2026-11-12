@@ -2,7 +2,7 @@ package com.example.tripmate.model
 
 data class DestinationDto(val destinations: List<SingleDestinationDto>)
 
-
+// DTO pour représenter une destination individuelle
 data class SingleDestinationDto(
     val id: Int,
     val nom: String,

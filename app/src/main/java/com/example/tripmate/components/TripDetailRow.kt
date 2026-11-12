@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 
 
-
+//Row personnalisée pour afficher les détails d'un voyage dans TripDetailsScreen
 @Composable
 fun TripDetailRow(iconRes: Int, label: String, value: String) {
     

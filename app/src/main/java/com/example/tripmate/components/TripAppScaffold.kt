@@ -21,7 +21,7 @@ import com.example.tripmate.R
 
 
 
-
+// Scaffold contenant la TopAppBar et le BottomBar
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun TripAppScaffold(
@@ -35,22 +35,23 @@ fun TripAppScaffold(
     Scaffold(
     modifier = Modifier.fillMaxSize(),
     topBar = {
+            // Le titre reste un raccourci vers l'écran d'accueil.
             TopAppBar(
                 title = {
-                    if (showBack) {
+                    if (showBack) { // Sur certains écrans, on affiche le titre à droite pour laisser de la place au bouton de retour
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.End,
                         ) {
                             Text(
                                 text = "TripMate",
-                                modifier = Modifier.clickable { onNavigate("home") },
+                                modifier = Modifier.clickable { onNavigate("home") }, // Permet de retourner à l'écran d'accueil
                             )
                         }
                     } else {
                         Text(
                             text = "TripMate",
-                            modifier = Modifier.clickable { onNavigate("home") },
+                            modifier = Modifier.clickable { onNavigate("home") }, // Permet de retourner à l'écran d'accueil
                         )
                     }
                 },
@@ -60,7 +61,7 @@ fun TripAppScaffold(
                 ),
                 navigationIcon = {
                     if (showBack) {
-                        IconButton(onClick = onBack) {
+                        IconButton(onClick = onBack) { // Bouton de retour
                             Icon(
                                 painter = painterResource(R.drawable.ic_arrow_back),
                                 contentDescription = "Retour",
@@ -72,7 +73,7 @@ fun TripAppScaffold(
             )
     },
     bottomBar = {
-        
+
         TripBottomBar(
             selectedRoute = selectedRoute,
             onNavigate = onNavigate,

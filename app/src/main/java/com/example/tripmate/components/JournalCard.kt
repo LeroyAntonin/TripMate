@@ -22,6 +22,7 @@ import androidx.compose.ui.unit.dp
 import coil3.compose.AsyncImage
 import com.example.tripmate.model.Journal
 
+// Card pour les journaux dans JournalScreen
 @Composable
 fun JournalCard(
     journal: Journal,

@@ -5,6 +5,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+// StateManager identique à celui de Netfloux
 object StateManager {
 
     @OptIn(DelicateCoroutinesApi::class)

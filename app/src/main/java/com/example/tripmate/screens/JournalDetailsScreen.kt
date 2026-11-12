@@ -117,6 +117,7 @@ fun JournalDetailsScreen(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
+                    // Les actions sont placées aux extrémités de la ligne.
                     IconButton(
                         onClick = { showDeleteDialog = true },
                         enabled = !isDeleting,

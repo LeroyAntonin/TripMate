@@ -8,9 +8,7 @@ import com.example.tripmate.R
 
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.OutlinedTextField
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
@@ -48,4 +46,3 @@ fun DestinationSearchBar(value: String, onValueChange: (String) -> Unit) {
     
     
 }
-

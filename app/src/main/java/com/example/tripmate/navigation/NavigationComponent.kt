@@ -15,9 +15,9 @@ import com.example.tripmate.screens.JournalScreen
 import com.example.tripmate.screens.ProfileScreen
 
 
-import androidx.compose.runtime.getValue
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.compose.runtime.getValue
 import com.example.tripmate.viewmodel.DestinationsViewModel
 
 import androidx.navigation.NavType

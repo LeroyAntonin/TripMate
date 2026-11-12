@@ -10,7 +10,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonPrimitive
 
 object DatabaseApi {
-    private const val BASE_URL = "http://192.168.0.28:3000"
+    private const val BASE_URL = "http://10.13.112.184:3000"  // adresse fac : 10.13.112.184
 
     private fun JsonElement.intId(resource: String): Int =
         jsonPrimitive.content.toIntOrNull()
@@ -34,6 +34,34 @@ object DatabaseApi {
             setBody(journal.copy(id = nextId))
         }.toJournal()
     }
+
+    suspend fun updateJournal(journal: NewJournal): Journal =
+        KtorClient.patch<RemoteJournal>("$BASE_URL/journaux/${journal.id}") {
+            setBody(journal)
+        }.toJournal()
+
+    suspend fun deleteJournal(journalId: Int) {
+        KtorClient.delete("$BASE_URL/journaux/$journalId")
+    }
+
+    suspend fun addDestinationComment(
+        destinationId: Int,
+        commentaire: String,
+        commentairesExistants: List<String>,
+    ): Destination {
+        return KtorClient.patch<RemoteDestination>("$BASE_URL/destinations/$destinationId") {
+            setBody(
+                DestinationComments(
+                    commentaires = commentairesExistants + commentaire,
+                )
+            )
+        }.toDestination()
+    }
+
+    @Serializable
+    private data class DestinationComments(
+        val commentaires: List<String>,
+    )
 
     @Serializable
     private data class RemoteDestination(

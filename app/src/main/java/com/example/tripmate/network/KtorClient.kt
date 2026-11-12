@@ -64,8 +64,10 @@ object KtorClient {
         block: HttpRequestBuilder.() -> Unit = {}
     ): T = client.patch(url, block).body()
 
-    suspend inline fun <reified T> delete(
+    suspend fun delete(
         url: String,
         block: HttpRequestBuilder.() -> Unit = {}
-    ): T = client.delete(url, block).body()
+    ) {
+        client.delete(url, block)
+    }
 }

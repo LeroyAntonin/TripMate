@@ -46,6 +46,7 @@ fun DestinationsNavigation() {
     val currentRoute = backStackEntry?.destination?.route ?: "home"
     val showBack = currentRoute.startsWith("details/") ||
             currentRoute.startsWith("journalDetails/") ||
+            currentRoute.startsWith("editJournal/") ||
             currentRoute == "addJournal"
     val selectedRoute = if (showBack) "home" else currentRoute
     
@@ -134,8 +135,29 @@ fun DestinationsNavigation() {
                     }
                     JournalDetailsScreen(
                         journal = journal,
-
+                        onJournalDeleted = {
+                            vmj.refresh()
+                            navController.popBackStack()
+                        },
+                        onJournalEdit = { journalId ->
+                            navController.navigate("editJournal/$journalId")
+                        },
                         )
+                }
+
+                composable(
+                    route = "editJournal/{journalId}",
+                    arguments = listOf(navArgument("journalId") { type = NavType.IntType }),
+                ) { entry ->
+                    val journalId = entry.arguments?.getInt("journalId")
+                    val journal = uiStateJ.journaux.firstOrNull { it.id == journalId }
+                    AddJournalScreen(
+                        journalToEdit = journal,
+                        onJournalAdded = {
+                            vmj.refresh()
+                            navController.popBackStack()
+                        },
+                    )
                 }
                 
                 composable("profile") {

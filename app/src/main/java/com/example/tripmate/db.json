@@ -19,7 +19,8 @@
       ],
       "commentaires": [
         "Cadre verdoyant et très reposant.",
-        "Les massages proposés au spa sont excellents."
+        "Les massages proposés au spa sont excellents.",
+        "J'aime"
       ]
     },
     {
@@ -531,24 +532,6 @@
       "dateDepart": "09/11/2026",
       "imageUrl": "https://content.r9cdn.net/rimg/dimg/30/0c/6318617a-city-35982-163ff913019.jpg?width=1366&height=768&xhint=2421&yhint=1876&crop=true",
       "avis": "Visite du palais de Gyeongbokgung, découverte des quartiers de Hongdae et dégustation de spécialités coréennes. Séoul est une métropole moderne et énergique qui conserve un patrimoine traditionnel remarquable."
-    },
-    {
-      "id": 101,
-      "ville": "ss",
-      "pays": "ss",
-      "dateArrivee": "15/15/1555",
-      "dateDepart": "15/15/1555",
-      "imageUrl": "ss",
-      "avis": "ss"
-    },
-    {
-      "id": 102,
-      "ville": "ss",
-      "pays": "ss",
-      "dateArrivee": "11/11/11",
-      "dateDepart": "11/11/11",
-      "imageUrl": "ss",
-      "avis": "ss"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

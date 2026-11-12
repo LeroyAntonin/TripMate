@@ -31,24 +31,27 @@ import com.example.tripmate.R
 import androidx.compose.ui.res.painterResource
 import com.example.tripmate.api.DatabaseApi
 import com.example.tripmate.model.NewJournal
+import com.example.tripmate.model.Journal
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.rememberCoroutineScope
 
 @Composable
 fun AddJournalScreen(
     onJournalAdded: () -> Unit,
+    journalToEdit: Journal? = null,
 ) {
     val coroutineScope = rememberCoroutineScope()
-    var ville by rememberSaveable { mutableStateOf("") }
-    var pays by rememberSaveable { mutableStateOf("") }
-    var dateArrivee by rememberSaveable(stateSaver = TextFieldValue.Saver) {
-        mutableStateOf(TextFieldValue(""))
+    val isEditing = journalToEdit != null
+    var ville by rememberSaveable(journalToEdit?.id) { mutableStateOf(journalToEdit?.ville.orEmpty()) }
+    var pays by rememberSaveable(journalToEdit?.id) { mutableStateOf(journalToEdit?.pays.orEmpty()) }
+    var dateArrivee by rememberSaveable(journalToEdit?.id, stateSaver = TextFieldValue.Saver) {
+        mutableStateOf(TextFieldValue(journalToEdit?.dateArrivee?.toDisplayDate().orEmpty()))
     }
-    var dateDepart by rememberSaveable(stateSaver = TextFieldValue.Saver) {
-        mutableStateOf(TextFieldValue(""))
+    var dateDepart by rememberSaveable(journalToEdit?.id, stateSaver = TextFieldValue.Saver) {
+        mutableStateOf(TextFieldValue(journalToEdit?.dateDepart?.toDisplayDate().orEmpty()))
     }
-    var imageUrl by rememberSaveable { mutableStateOf("") }
-    var avis by rememberSaveable { mutableStateOf("") }
+    var imageUrl by rememberSaveable(journalToEdit?.id) { mutableStateOf(journalToEdit?.imageUrl.orEmpty()) }
+    var avis by rememberSaveable(journalToEdit?.id) { mutableStateOf(journalToEdit?.avis.orEmpty()) }
     var isSaving by rememberSaveable { mutableStateOf(false) }
     var error by rememberSaveable { mutableStateOf<String?>(null) }
 
@@ -136,20 +139,23 @@ fun AddJournalScreen(
                         isSaving = true
                         error = null
                         try {
-                            DatabaseApi.addJournal(
-                                NewJournal(
-                                    id = 0,
-                                    ville = ville.trim(),
-                                    pays = pays.trim(),
-                                    dateArrivee = dateArrivee.text.trim(),
-                                    dateDepart = dateDepart.text.trim(),
-                                    imageUrl = imageUrl.trim(),
-                                    avis = avis.trim(),
-                                )
+                            val journal = NewJournal(
+                                id = journalToEdit?.id ?: 0,
+                                ville = ville.trim(),
+                                pays = pays.trim(),
+                                dateArrivee = dateArrivee.text.trim(),
+                                dateDepart = dateDepart.text.trim(),
+                                imageUrl = imageUrl.trim(),
+                                avis = avis.trim(),
                             )
+                            if (isEditing) {
+                                DatabaseApi.updateJournal(journal)
+                            } else {
+                                DatabaseApi.addJournal(journal)
+                            }
                             onJournalAdded()
                         } catch (exception: Exception) {
-                            error = "Impossible d'ajouter le journal : ${exception.message}"
+                            error = "Impossible d'enregistrer le journal : ${exception.message}"
                         } finally {
                             isSaving = false
                         }
@@ -162,7 +168,7 @@ fun AddJournalScreen(
             if (isSaving) {
                 CircularProgressIndicator()
             } else {
-                Text("Ajouter")
+                Text(if (isEditing) "Enregistrer" else "Ajouter")
             }
         }
     }
@@ -170,6 +176,9 @@ fun AddJournalScreen(
 
 private fun isDateFormatValid(date: String): Boolean =
     date.matches(Regex("""\d{2}/\d{2}/\d{2}(\d{2})?"""))
+
+private fun String.toDisplayDate(): String =
+    split("-").reversed().joinToString("/")
 
 private fun formatDateInput(input: TextFieldValue): TextFieldValue {
     val digits = input.text.filter(Char::isDigit).take(8)

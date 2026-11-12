@@ -171,9 +171,13 @@ fun DestinationsNavigation() {
                 
                 composable("profile") {
                     ProfileScreen(
-                        tags = uiStateD.destinations.flatMap { it.tags }.distinct(), // On récupère tous les tags uniques
+                        tags = uiStateD.destinations.flatMap { it.tags }.distinct(),
+                        categories = uiStateD.categories,
+                        categoriesLoading = uiStateD.categoriesLoading,
+                        categoriesError = uiStateD.categoriesError,
                         selectedTags = uiStateD.preferredTags,
                         onTagClick = vmd::togglePreferredTag,
+                        onRetry = vmd::refreshCategories,
                     )
                 }
 

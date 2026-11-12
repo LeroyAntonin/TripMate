@@ -1,5 +1,8 @@
 package com.example.tripmate.viewmodel
 
+
+import com.example.tripmate.model.Category
+import kotlinx.coroutines.CancellationException
 import com.example.tripmate.model.Destination
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -12,6 +15,9 @@ import kotlinx.coroutines.flow.update
 
 data class DestinationsUiState(
     val destinations: List<Destination> = emptyList(),
+    val categories: List<Category> = emptyList(),
+    val categoriesLoading: Boolean = false,
+    val categoriesError: String? = null,
     val query: String = "",
     val preferredTags: Set<String> = emptySet(),
     val filterTags: Set<String> = emptySet(),
@@ -31,8 +37,41 @@ class DestinationsViewModel : ViewModel() {
     init {
     // Charge les destinations dès la création du ViewModel.
     refresh()
+    // Charge les categories des la creation du Viewmodel
+    refreshCategories()
     }
-    
+
+    fun refreshCategories() {
+        viewModelScope.launch {
+            _uiState.update {
+                it.copy(
+                    categoriesLoading = true,
+                    categoriesError = null
+                )
+            }
+
+            try {
+                val categories = DatabaseApi.getCategories()
+                    .sortedBy { it.ordre }
+
+                _uiState.update {
+                    it.copy(
+                        categories = categories,
+                        categoriesLoading = false
+                    )
+                }
+            } catch (exception: CancellationException) {
+                throw exception
+            } catch (exception: Exception) {
+                _uiState.update {
+                    it.copy(
+                        categoriesLoading = false,
+                        categoriesError = "Impossible de charger les catégories."
+                    )
+                }
+            }
+        }
+    }
     fun updateQuery(query: String) {
     _uiState.update { current -> current.copy(query = query) }
 }

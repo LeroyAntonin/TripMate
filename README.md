@@ -9,6 +9,7 @@ TripMate est une application Android de planification de voyages. Elle permet de
 - Affichage des destinations avec image, hôtel, adresse, prix et dates.
 - Recherche par ville ou par pays.
 - Filtrage par tags.
+- Classement des résultats selon les préférences sélectionnées dans le profil.
 - Affichage des commentaires dans des cartes arrondies.
 - Ajout d'un commentaire directement depuis la page de détail.
 - Enregistrement des commentaires dans `db.json`.
@@ -19,12 +20,20 @@ TripMate est une application Android de planification de voyages. Elle permet de
 - Recherche par ville ou par pays.
 - Ajout d'un journal.
 - Modification d'un journal existant.
+- Affichage détaillé d'un journal avec avis présenté dans une carte.
 - Suppression d'un journal avec confirmation.
-- Persistance des ajouts, modifications et suppressions dans `db.json`.
+- Saisie et affichage des dates au format `dd/mm/yy` ou `dd/mm/yyyy`.
+- Persistance des ajouts, modifications et suppressions via l'API.
+
+### Profil et préférences
+
+- Affichage des tags de destination regroupés par catégories.
+- Sélection de plusieurs préférences depuis l'écran Profil.
+- Rechargement des catégories en cas d'erreur réseau.
 
 ### Navigation
 
-- Navigation entre l'accueil, les journaux et le profil.
+- Navigation entre l'accueil, les journaux et le profil avec une barre de navigation inférieure.
 - Retour depuis les pages de détail avec la flèche de la TopBar.
 - Clic sur le titre `TripMate` pour revenir à l'accueil.
 - Gestion des chargements et des erreurs réseau.
@@ -37,7 +46,7 @@ TripMate est une application Android de planification de voyages. Elle permet de
 - Navigation Compose
 - Ktor Client
 - Coil pour le chargement des images
-- `json-server` comme API locale
+- `json-server` pour l'API locale de développement
 
 ## Prérequis
 
@@ -52,7 +61,7 @@ TripMate est une application Android de planification de voyages. Elle permet de
 
    ```bash
    git clone <url-du-depot>
-   cd TripMate2
+   cd TripMate
    ```
 
 2. Ouvrir le projet dans Android Studio.
@@ -63,9 +72,15 @@ TripMate est une application Android de planification de voyages. Elle permet de
    npm install
    ```
 
-## Lancement de l'API locale
+## Lancement de l'API
 
-Depuis la racine du projet, lancer :
+L'application utilise par défaut l'API déployée à l'adresse :
+
+```text
+https://tripmate-kifo.onrender.com
+```
+
+Pour lancer une instance locale depuis la racine du projet, exécuter :
 
 ```bash
 npm run api
@@ -81,6 +96,7 @@ L'API expose notamment les ressources suivantes :
 
 - `GET /destinations`
 - `PATCH /destinations/:id`
+- `GET /categories`
 - `GET /journaux`
 - `POST /journaux`
 - `PATCH /journaux/:id`
@@ -94,7 +110,7 @@ L'adresse de l'API est définie dans :
 app/src/main/java/com/example/tripmate/api/DatabaseApi.kt
 ```
 
-La constante `BASE_URL` doit pointer vers l'adresse IP de la machine qui exécute `json-server`.
+La constante `BASE_URL` pointe par défaut vers l'API Render. Pour utiliser `json-server` en local, la remplacer par l'adresse de la machine qui l'exécute.
 
 - Avec un émulateur Android, utiliser généralement `10.0.2.2:3000` pour accéder à l'ordinateur hôte.
 - Avec un appareil physique, utiliser l'adresse IP locale de l'ordinateur.
@@ -102,10 +118,9 @@ La constante `BASE_URL` doit pointer vers l'adresse IP de la machine qui exécut
 
 ## Lancement de l'application
 
-1. Démarrer `json-server` avec `npm run api`.
-2. Vérifier la valeur de `BASE_URL`.
-3. Sélectionner un émulateur ou un appareil dans Android Studio.
-4. Lancer la configuration Android avec **Run**.
+1. Utiliser l'API Render par défaut, ou démarrer `json-server` et adapter `BASE_URL` pour une API locale.
+2. Sélectionner un émulateur ou un appareil dans Android Studio.
+3. Lancer la configuration Android avec **Run**.
 
 L'application peut aussi être compilée depuis la racine du projet :
 

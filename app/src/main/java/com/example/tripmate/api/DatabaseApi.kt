@@ -10,7 +10,7 @@ import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.jsonPrimitive
 
 object DatabaseApi {
-    private const val BASE_URL = "http://10.13.112.184:3000"  // adresse fac : 10.13.112.184
+    private const val BASE_URL = "https://tripmate-kifo.onrender.com"  // adresse fac : 10.13.112.184
 
     // Convertit un JsonElement en Int, en lançant une exception si la conversion échoue.
     // Permet de gérer les erreurs d'ID dans les destinations et les journaux.

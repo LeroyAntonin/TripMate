@@ -1,6 +1,8 @@
 package com.example.tripmate.components
 
 
+import androidx.compose.foundation.layout.FlowRow
+
 import androidx.compose.ui.res.painterResource
 import com.example.tripmate.R
 
@@ -43,8 +45,8 @@ fun DestinationCard(
                 modifier = Modifier.width(120.dp).height(140.dp),
                 contentScale = ContentScale.Crop,
                  )
-            Column(modifier = Modifier.weight(1f).padding(18.dp),
-                 verticalArrangement = Arrangement.spacedBy(22.dp),) {
+            Column(modifier = Modifier.weight(1f).padding(horizontal = 12.dp, vertical = 8.dp),
+                 verticalArrangement = Arrangement.spacedBy(8.dp),) {
                 Text(
                     text = "${destination.nom}, ${destination.pays}",
                     style = MaterialTheme.typography.titleMedium,
@@ -55,15 +57,17 @@ fun DestinationCard(
                     maxLines = 1,
 
                 )
-                Row(
-                    horizontalArrangement = Arrangement.spacedBy(4.dp)
-                ) {
+                FlowRow(
+    modifier = Modifier.fillMaxWidth().padding(top = 30.dp),
+    horizontalArrangement = Arrangement.spacedBy(4.dp),
+    verticalArrangement = Arrangement.spacedBy(4.dp)
+) {
                     destination.tags.take(3).forEach { tag ->
                         Text(
                             text = tag,
                             color = MaterialTheme.colorScheme.onSecondaryContainer,
                             style = MaterialTheme.typography.labelSmall,
-                            maxLines = 1,
+                            //maxLines = 2,
                             modifier = Modifier
                                 .background(
                                     MaterialTheme.colorScheme.secondaryContainer,

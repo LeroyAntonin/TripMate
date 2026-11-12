@@ -3,6 +3,8 @@ package com.example.tripmate.screens
 
 import com.example.tripmate.model.Destination
 
+import androidx.compose.material3.OutlinedCard
+
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -70,11 +72,13 @@ fun JournalDetailsScreen(
 
         val datesText = "${formatTripDate(journal.dateArrivee)} – ${formatTripDate(journal.dateDepart)}"
 
-        Column(
-            modifier = Modifier.fillMaxSize()
-                .verticalScroll(rememberScrollState()),
-            verticalArrangement = Arrangement.spacedBy(12.dp)
-        ) {
+       Column(modifier = Modifier.fillMaxSize()) {
+    Column(
+        modifier = Modifier
+            .weight(1f)
+            .verticalScroll(rememberScrollState()),
+        verticalArrangement = Arrangement.spacedBy(12.dp)
+    ) {
 
             AsyncImage(
                 model = journal.imageUrl,
@@ -99,11 +103,24 @@ fun JournalDetailsScreen(
                     style = MaterialTheme.typography.bodyMedium,
                 )
 
-                Text(
-                    text = journal.avis,
-                    style = MaterialTheme.typography.headlineSmall,
-                    textAlign = TextAlign.Justify
-                )
+
+                OutlinedCard(
+    modifier = Modifier.fillMaxWidth()
+) {
+    Text(
+        text = journal.avis,
+        modifier = Modifier
+            .fillMaxWidth()
+       .padding(
+    start = 16.dp,
+    top = 16.dp,
+    end = 16.dp,
+    bottom = 32.dp
+),
+style = MaterialTheme.typography.bodyLarge,
+        textAlign = TextAlign.Justify
+    )
+}
 
                 if (error != null) {
                     Text(
@@ -113,7 +130,12 @@ fun JournalDetailsScreen(
                     )
                 }
 
-                Row(
+
+            }
+
+        }
+        
+                        Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceBetween,
                 ) {
@@ -143,10 +165,7 @@ fun JournalDetailsScreen(
                         )
                     }
                 }
-            }
-
-        }
-
+       }
         if (showDeleteDialog) {
             AlertDialog(
                 onDismissRequest = {

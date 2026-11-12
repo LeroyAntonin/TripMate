@@ -70,7 +70,8 @@ Column(
     
 
         val visibleDestinations = uiState.destinations.filter { destination ->
-            destination.nom.contains(uiState.query, ignoreCase = true) &&
+            (destination.nom.contains(uiState.query, ignoreCase = true) ||
+                destination.pays.contains(uiState.query, ignoreCase = true)) &&
                 (uiState.filterTags.isEmpty() ||
                     destination.tags.any { it in uiState.filterTags })
         }.sortedByDescending { destination ->

@@ -76,7 +76,8 @@ fun JournalScreen(
 
 
             val visibleDestinations = uiState.journaux.filter {
-                it.ville.contains(uiState.query, ignoreCase = true)
+                it.ville.contains(uiState.query, ignoreCase = true) ||
+                    it.pays.contains(uiState.query, ignoreCase = true)
             }
 
             DestinationSearchBar(value = uiState.query, onValueChange = onQueryChange)

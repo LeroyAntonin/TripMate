@@ -442,6 +442,7 @@
     }
   ],
   "journaux": [
+
     {
       "id": 10,
       "ville": "Marseille",
@@ -451,6 +452,7 @@
       "imageUrl": "https://cdn.generationvoyage.fr/2025/07/Le-Vieux-Port-Marseille-630x420.jpeg",
       "avis": "Promenade sur le Vieux-Port, excursion dans les calanques et découverte de la cuisine méditerranéenne. Marseille est une ville vivante et ensoleillée, avec un patrimoine maritime particulièrement intéressant."
     },
+
     {
       "id": 20,
       "ville": "Amsterdam",
@@ -531,6 +533,49 @@
       "dateDepart": "09/11/2026",
       "imageUrl": "https://content.r9cdn.net/rimg/dimg/30/0c/6318617a-city-35982-163ff913019.jpg?width=1366&height=768&xhint=2421&yhint=1876&crop=true",
       "avis": "Visite du palais de Gyeongbokgung, découverte des quartiers de Hongdae et dégustation de spécialités coréennes. Séoul est une métropole moderne et énergique qui conserve un patrimoine traditionnel remarquable."
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "nom": "Nature & Aventure",
+      "ordre": 1,
+      "tags": [
+        "Nature", "Plage", "Montagne", "Désert",
+        "Aventure", "Plongée", "Aurores boréales", "Paysages"
+      ]
+    },
+    {
+      "id": 2,
+      "nom": "Culture & Patrimoine",
+      "ordre": 2,
+      "tags": [
+        "Culture", "Histoire", "Tradition", "Architecture", "Musique"
+      ]
+    },
+    {
+      "id": 3,
+      "nom": "Gastronomie & Vie locale",
+      "ordre": 3,
+      "tags": ["Gastronomie", "Marchés"]
+    },
+    {
+      "id": 4,
+      "nom": "Ville & Shopping",
+      "ordre": 4,
+      "tags": ["Ville", "Shopping"]
+    },
+    {
+      "id": 5,
+      "nom": "Détente & Romance",
+      "ordre": 5,
+      "tags": ["Bien-être", "Romantique"]
+    },
+    {
+      "id": 6,
+      "nom": "Luxe & Expériences",
+      "ordre": 6,
+      "tags": ["Luxe", "Tango"]
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"

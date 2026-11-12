@@ -47,9 +47,17 @@ fun DestinationsNavigation() {
     val showBack = currentRoute.startsWith("details/") ||
             currentRoute.startsWith("journalDetails/") ||
             currentRoute.startsWith("editJournal/") ||
-            currentRoute == "addJournal"
-    val selectedRoute = if (showBack) "home" else currentRoute
-    
+            currentRoute == "addJournal" ||
+            currentRoute == "profile"
+    val selectedRoute = when {
+    currentRoute.startsWith("details/") -> "home"
+
+    currentRoute.startsWith("journalDetails/") ||
+    currentRoute.startsWith("editJournal/") ||
+    currentRoute == "addJournal" -> "journal"
+
+    else -> currentRoute
+}
     
     
     

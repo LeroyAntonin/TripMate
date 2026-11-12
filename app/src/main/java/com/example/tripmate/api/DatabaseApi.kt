@@ -1,5 +1,6 @@
 package com.example.tripmate.api
 
+import com.example.tripmate.model.Category
 import com.example.tripmate.model.Destination
 import com.example.tripmate.model.Journal
 import com.example.tripmate.model.NewJournal
@@ -22,6 +23,11 @@ object DatabaseApi {
     suspend fun getDestinations(): List<Destination> =
         KtorClient.get<List<RemoteDestination>>("$BASE_URL/destinations")
             .map { it.toDestination() }
+
+// cette méthode demande les catégories au serveur et renvoie une liste de Category
+    suspend fun getCategories(): List<Category> =
+        KtorClient.get<List<Category>>("$BASE_URL/categories")
+
 
     //Récupère les journaux depuis l'API
     suspend fun getJournaux(): List<Journal> =

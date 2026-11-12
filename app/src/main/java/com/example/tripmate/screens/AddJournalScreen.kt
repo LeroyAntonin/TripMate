@@ -103,13 +103,13 @@ fun AddJournalScreen(
         ) {
             DateField(
                 value = dateArrivee,
-                onValueChange = { dateArrivee = formatDateInput(it) },
+                onValueChange = { dateArrivee = formatDateInput(it, dateArrivee) },
                 label = "Date d'arrivée",
                 modifier = Modifier.weight(1f),
             )
             DateField(
                 value = dateDepart,
-                onValueChange = { dateDepart = formatDateInput(it) },
+                onValueChange = { dateDepart = formatDateInput(it, dateDepart) },
                 label = "Date de départ",
                 modifier = Modifier.weight(1f),
             )
@@ -184,8 +184,11 @@ private fun isDateFormatValid(date: String): Boolean =
 private fun String.toDisplayDate(): String =
     split("-").reversed().joinToString("/")
 
-private fun formatDateInput(input: TextFieldValue): TextFieldValue {
+private fun formatDateInput(input: TextFieldValue, previous: TextFieldValue): TextFieldValue {
     val digits = input.text.filter(Char::isDigit).take(8)
+    val keepTrailingSeparator = input.text.endsWith("/") &&
+        input.text.length < previous.text.length &&
+        previous.text.indexOf('/').let { it >= 0 && it < previous.text.lastIndex }
     val formatted = buildString {
         append(digits.take(2))
         if (digits.length >= 2) {
@@ -197,9 +200,28 @@ private fun formatDateInput(input: TextFieldValue): TextFieldValue {
         }
         append(digits.drop(4))
     }
+
+    val digitsBeforeCursor = input.text
+        .take(input.selection.start.coerceIn(0, input.text.length))
+        .count(Char::isDigit)
+    var cursor = 0
+    var digitsSeen = 0
+    while (cursor < formatted.length && digitsSeen < digitsBeforeCursor) {
+        if (formatted[cursor].isDigit()) {
+            digitsSeen++
+        }
+        cursor++
+    }
+    if (!keepTrailingSeparator &&
+        (digitsBeforeCursor == 2 || digitsBeforeCursor == 4) &&
+        cursor < formatted.length && formatted[cursor] == '/'
+    ) {
+        cursor++
+    }
+
     return TextFieldValue(
         text = formatted,
-        selection = TextRange(formatted.length),
+        selection = TextRange(cursor),
     )
 }
 
